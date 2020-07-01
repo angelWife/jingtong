@@ -1,0 +1,208 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">优惠券名称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入优惠券名称" />
+        </div>
+      </div>
+
+    
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">类型</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">创建时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请选择创建时间" id="create_time" />
+        </div>
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">到期时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请选到期成时间" id="finish_time" />
+        </div>
+      </div>
+
+
+      <div class="col-md-2 row align-items-center"></div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+{{#  if(d.flag == 1){ }}
+  <span class="layui-btn layui-btn-xs" lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-danger layui-btn-xs" lay-event="on"  >启用</span>
+  <span class="layui-btn  layui-btn-warm layui-btn-xs" lay-event="del"  >删除</span>
+{{#  } else if(d.flag == 2) { }}
+
+  <span class="layui-btn layui-btn-xs"  lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-danger layui-btn-xs"  lay-event="off"  >停用</span>
+  <span class="layui-btn  layui-btn-warm layui-btn-xs"  lay-event="detail"  >查看明细</span>
+
+{{#  } else { }}
+  <span class="layui-btn layui-btn-xs"  lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-danger layui-btn-xs" lay-event="on"  >启用</span>
+  <span class="layui-btn  layui-btn-warm layui-btn-xs"  lay-event="del"  >删除</span
+
+{{#  } }}
+</script>
+
+<script>
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+       laydate.render({
+        range: true,
+        elem: '#finish_time'
+      });
+
+       laydate.render({
+        range: true,
+        elem: '#create_time'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+         [{
+            field: 'id',
+            width: 80,
+            title: 'ID',
+           // sort: true
+          }, {
+            field: 'aaa',
+            width: 150,
+            title: '优惠券名称'
+          }, {
+            field: 'bbb',
+            width: 120,
+            title: '作用范围',
+           // sort: true
+          }, {
+            field: 'ccc',
+            width: 80,
+            title: '类型'
+          }, {
+            field: 'ddd',
+            title: '已使用',
+            width: 80
+          }, {
+            field: 'eee',
+            width: 80,
+            title: '已领取',
+          //  sort: true
+          }, {
+            field: 'fff',
+            width: 120,
+            title: '开始时间',
+           // sort: true
+          },
+          {
+            field: 'ggg',
+           width: 120,
+            title: '到期时间',
+           // sort: true
+          }, 
+          {
+            field: 'hhh',
+           width: 150,
+            title: '状态',
+           // sort: true
+          },  
+          {title: '操作',width:240, align:'center',fixed:'right',templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+          //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'look'){ 
+    
+      loadHtml('mainIframe','finance/reconciliation_look.html');
+
+  } else if(layEvent === 'del'){ 
+    layer.confirm('真的删除行么', function(index){
+      obj.del(); 
+      layer.close(index);
+    });
+  } else if(layEvent === 'detail'){ 
+ loadHtml('mainIframe','finance/reconciliation_look.html');
+ 
+
+  }else if(layEvent === 'edit'){ 
+ loadHtml('mainIframe','finance/reconciliation_look.html');
+
+  } else if(layEvent === 'on'){
+    layer.alert('启用成功');
+  }else if(layEvent === 'off'){
+    layer.alert('停用成功');
+  }
+});
+
+
+    });
+
+
+
+  });
+
+
+
+
+</script>

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../css/home.css?sss">
+<div id="home" class="home pd15">
+  <div class="home_head row">
+    <div class="col-md-12">
+      <ul id="homeNav">
+        <li><a href="javascript:;" data-src="marketing/news_sub/news_edit.html" class="active">基本信息</a></li>
+        <li><a href="javascript:;" data-src="marketing/news_sub/list.html" >发送清单</a></li>
+      </ul>
+    </div>
+  
+  </div>
+  <div class="shop_modal">
+  <div id="homeIframe"></div>
+</div>
+<script>
+$(function(){
+  loadHtml('homeIframe',"marketing/news_sub/news_edit.html");
+  $("#homeNav li").off('click').on('click',function(){
+    var src= $(this).children('a').data('src');
+    loadHtml('homeIframe',src);
+    $(this).children('a').addClass('active');
+    $(this).siblings().children('a').removeClass('active');
+  });
+});
+</script>

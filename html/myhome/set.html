@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="../css/set.css">
+<div class="warp" >
+<table id="table" class="layui-table" lay-skin="line"  lay-size="lg"  >
+  <tbody>
+    <tr>
+      <td>真实姓名</td>
+      <td>*静 | 3************X   已认证</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>手机</td>
+      <td>180****5208</td>
+      <td id="mobile" >修改</td>
+    </tr>
+    <tr>
+      <td>小铺名</td>
+      <td>外星人的铺 |ID：138495918</td>
+      <td id="shop" >修改</td>
+    </tr>
+    <tr>
+      <td>支付密码</td>
+      <td>在资金变动时，需要输入的密码</td>
+      <td><span>修改</span> | <span>设置</span></td>
+    </tr>
+    <tr>
+      <td>登录密码</td>
+      <td>在登录供应商系统时，需要输入的密码</td>
+      <td><span>修改</span> | <span>设置</span></td>
+    </tr>
+    <tr>
+      <td>注册时间</td>
+      <td>2019年10月30日</td>
+      <td>注销店铺</td>
+    </tr>
+    <tr>
+      <td>银行账户</td>
+      <td>已绑定3张银行卡</td>
+      <td id="bank" >管理</td>
+    </tr>
+    <tr>
+      <td>精灵折扣</td>
+      <td>支持精灵1、精灵2折扣</td>
+      <td id="discount" >管理</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
+<div style="display:none;" id="modify_shop" >
+<div class="addFormModal form-horizontal bg_white">
+<form style="width:700px;" >
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">小铺名称</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control" style="min-height:100px;"  ></textarea>
+      </div>
+    </div>
+
+   <div class="row align-items-center" style="margin-top:50px;" >
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="control-label col-md-3 text-right">
+        <span class="btn btn-primary w120">确认</span>
+      </div>
+      <div class="col-md-3">
+       <span class="btn btn-primary w120">取消</span>
+      </div>
+      <div class="control-label col-md-3 text-right"></div>
+    </div>
+
+</form>
+</div>
+</div>
+
+
+<script>
+  
+function modify_shop(){
+  window.layer.open({type: 1, btn: false, area:["800px","500px"], content:$("#modify_shop").html(), title:"修改小铺名"});
+}
+
+
+
+
+ $(function() {
+$("#mobile").click(function(){
+  loadHtml('mainIframe','myhome/set_modify_mobile.html');
+});
+
+$("#shop").click(function(){
+ modify_shop();
+});
+
+$("#bank").click(function(){
+  loadHtml('mainIframe','myhome/bank.html');
+});
+
+$("#discount").click(function(){
+  loadHtml('mainIframe','myhome/discount.html');
+});
+
+});    
+
+
+
+</script>

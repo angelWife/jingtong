@@ -1,0 +1,105 @@
+<div id="userAdd" class="addFormModal form-horizontal">
+  <form>
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right">真实姓名</div>
+      <div class="col-md-4">
+        <input class="form-control"  readonly="" value="**静"  />
+      </div>
+    </div>
+    
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right">身份证号</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly=""   value="3********************X" />
+      </div>
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right required"><span class="red">*</span>银行卡号</div>
+      <div class="col-md-4">
+        <input class="form-control"  />
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right required"><span class="red">*</span>开户行</div>
+      <div class="col-md-4">
+        <select class="form-control"   >
+            <option>请选择</option>
+          </select>
+      </div>
+    </div>
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right required"><span class="red">*</span>手机号码</div>
+      <div class="col-md-4">
+        <input class="form-control"  />
+      </div>
+    </div>
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right required"><span class="red">*</span>校验码</div>
+      <div class="col-md-2">
+        <input class="form-control"  />
+      </div>
+      <div class="col-md-1">
+       <span class="btn btn-primary" >获取验证码</span>
+      </div>
+    </div>
+
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="col-md-2">
+        <div class="btnBox text-center ">
+          <button class="btn btn-primary" type="submit">同意协定并确认</button>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+</div>
+<script>
+  $(function() {
+    layui.use(['laydate', 'upload'], function() {
+      var laydate = layui.laydate;
+      var upload = layui.upload;
+
+      laydate.render({
+        elem: '#birthdayDate'
+      });
+      //普通图片上传
+      var uploadInst = upload.render({
+        elem: '#upLoadPic',
+        url: '/upload/',
+        before: function(obj) {
+          //预读本地文件示例，不支持ie8
+          obj.preview(function(index, file, result) {
+            $('#picBox').attr('src', result); //图片链接（base64）
+          });
+        },
+        done: function(res) {
+          //如果上传失败
+          if (res.code > 0) {
+            return layer.msg('上传失败');
+          }
+          //上传成功
+        },
+        error: function() {
+          //演示失败状态，并实现重传
+          var demoText = $('#demoText');
+          demoText.html(
+            '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+          );
+          demoText.find('.demo-reload').on('click', function() {
+            uploadInst.upload();
+          });
+        }
+      });
+    });
+  });
+</script>

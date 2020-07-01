@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="../dist/layui/css/layui.css">
+  <link rel="stylesheet" href="../dist/bootstrap4/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../dist/fonts/iconfont.css">
+
+  <!-- <script src="/dist/layui/layui.js"></script> -->
+  <script src="../js/jquery-2.1.1.js"></script>
+  <script src="../myadmin/"></script>
+  <script src="../js/common.js"></script>
+  <script src="../dist/layui/layui.all.js"></script>
+  <script>
+
+    var layer = layui.layer;
+    var laydate = layui.laydate;
+    var table = layui.table;
+    var laytree = layui.tree;
+    var layTreeSelect = layui.treeSelect;
+    var layUpload = layui.upload;
+    var layElement = layui.element;
+    // }); 
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="head row">
+      <div class="logo">
+        <!-- <img src="../images/icon-logo.png" /> -->
+        泉铸智慧管网管理平台
+      </div>
+
+      <!-- <div class="headBar" id="head_menu"></div> -->
+
+      <div class="col-md">
+        <ul class="headMenu" id="headNav">
+
+          <li>
+            <a href="javascript:;" title="联系客服">
+              <div class="user-icon row align-items-center">
+                  欢迎您，张三
+                <!-- <div class="col-md-6 col-xs-6">
+                  <div><img src="../images/p1.jpg" /></div>
+                </div> -->
+                <!-- <div class="col-md-6 col-xs-6 username">
+                  <div class="user-text">杨华</div>
+                  <div class="user-text">少校</div>
+                </div> -->
+              </div>
+            </a>
+          </li>
+<!-- 
+          <li>
+            <a href="javascript:;" title="联系客服">
+              <div class="wrap-icon">
+                <div class="service-icon"></div>
+                <div class="icon-text">联系客服</div>
+              </div>
+            </a>
+          </li> -->
+          <li>
+            <a href="javascript:;" title="退出">
+              <div class="wrap-icon">
+                <!-- <div class="exit-icon"></div> -->
+                <div class="icon-text">退出</div>
+              </div>
+            </a>
+          </li>
+          <!-- <li class="more">
+            <a href="javascript:;" class="glyphicon glyphicon-triangle-bottom">亡命天涯</a>
+            <div class="childNav">
+              <a>修改资料</a>
+              <a>个人信息</a>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="body row">
+      <div class="m_left" id="body_left" style="overflow: auto;">
+
+        <div class="menuBox" id="menuBox">
+          <dl class="menuItem">
+            <dt>
+              <a class="glyphicon glyphicon-home" href="javascript:void(0);" data-name="列表数据" data-src="html/newPage/mapList.html">
+                <text id="navHome">列表数据</text>
+                <i class="glyphicon glyphicon-triangle-bottom"></i>
+              </a>
+            </dt>
+            <dt>
+                <a class="iconfont icon-shangpu" href="javascript:void(0);" data-name="状态数据" data-src="html/newPage/statuList.html">
+                  <text id="page_statuList">状态数据</text>
+                  <i class="iconfont icon-shangpu"></i>
+                </a>
+              </dt>
+            <!-- <dd>
+              <a href="javascript:void(0);" data-src="myhome/set.html" data-name="账户设置">账户设置</a>
+              <a href="javascript:void(0);" data-src="myhome/backSet.html" data-name="背景图设置">背景图设置</a>
+              <a href="javascript:void(0);" data-src="myhome/dataChats.html?ss" data-name="统计面板">统计面板</a>
+
+              <a href="javascript:void(0);" data-src="layerui_base_form.html?ss" data-name="layui基本表单例子">layui基本表单例子</a>
+              <a href="javascript:void(0);" data-src="bootstrap_base_form.html?ss"
+                data-name="bootstrap基本表单例子">bootstrap基本表单例子</a>
+            </dd> -->
+          </dl>
+        </div>
+      </div>
+      <div class="m_right col" id="body_right">
+        <div class="treeBox bg_white">
+          <div class="home" id="menuClick">《</div>
+          <div class="treeList">
+            <div class="treeMain" id="headTree" data-url="home.html">
+            </div>
+            <!-- <div  class="home1"  id="menuClick1" > 》</div>  -->
+          </div>
+
+          <div class="closeAll glyphicon glyphicon-off"></div>
+        </div>
+        <div class="main" id="mainIframe">
+          <!-- <div  class="bg_white"> -->
+            <!-- <div class="iframe" id="defaultHome"></div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="treeModal">
+    <div id="treeDemo"></div>
+  </div>
+</body>
+<script>
+  var menus = [
+    // {"id":"1","name":"营销管理","icon":"iconfont icon-yingxiaozhongxin","img_icon":"/images/yingxiao@2x.png","children":[
+    //       {"name":"营销管理","icon":"iconfont icon-yingxiaozhongxin","img_icon":"/images/yingxiao@2x.png","children":[
+    //         {"name":"粉丝管理","url":"html/marketing/funs_list.html"},
+    //         {"name":"私信管理","url":"html/marketing/private_letter_list.html"},
+    //         {"name":"发帖管理","url":"html/marketing/post_list.html"},
+    //         {"name":"广告管理","url":"html/marketing/ad_manage_list.html"},
+    //         {"name":"广告购买","url":"html/marketing/ad_list.html"},
+    //         {"name":"客服管理","url":"html/marketing/kefu_list.html"},
+    //         {"name":"在线客服","url":"html/marketing/chat.html"},
+    //         {"name":"知识库管理","url":"html/marketing/knowledge_list.html"},
+    //         {"name":"消息管理","url":"html/marketing/news_list.html"},
+    //       ]}
+
+    //       ]
+    // },
+    {
+      "id": "2",
+      "name": "商铺管理",
+      "icon": "iconfont icon-shangpu",
+      "children": [{
+        "name": "商铺管理",
+        "icon": "iconfont icon-shangpu",
+        "children": [{
+            "name": "商品管理",
+            "url": "html/shop/goods_list.html"
+          },
+          {
+            "name": "优惠券管理",
+            "url": "html/shop/coupon_list.html"
+          },
+          {
+            "name": "订单管理",
+            "url": "html/shop/order_list.html"
+          },
+          {
+            "name": "退换货管理",
+            "url": "html/shop/order_refund_list.html"
+          },
+          {
+            "name": "商品评价管理",
+            "url": "html/shop/evaluate_list.html"
+          },
+          {
+            "name": "商品销售管理",
+            "url": "html/shop/goods_sale_list.html"
+          },
+          {
+            "name": "运费模板管理",
+            "url": "html/shop/freight_template_list.html"
+          },
+
+        ]
+      }]
+    },
+    {
+      "id": "3",
+      "name": "财务管理",
+      "icon": "iconfont icon-caiwuguanli",
+      "children": [{
+        "name": "财务管理",
+        "icon": "iconfont icon-caiwuguanli",
+        "children": [{
+            "name": "会员返利",
+            "url": "html/finance/rebate_list.html"
+          },
+          {
+            "name": "对账单管理",
+            "url": "html/finance/reconciliation_list.html"
+          },
+          {
+            "name": "人民币账户管理",
+            "url": "html/finance/account_rmb.html"
+          },
+          {
+            "name": "星票账户管理",
+            "url": "html/finance/account_xingpiao.html"
+          },
+          {
+            "name": "其他支付订单",
+            "url": "html/finance/qita_pay.html"
+          },
+        ]
+      }]
+    },
+    {
+      "id": "4",
+      "name": "统计",
+      "icon": "iconfont icon-web-icon-",
+      "children": [{
+        "name": "统计",
+        "icon": "iconfont icon-web-icon-",
+        "children": [{
+            "name": "商品评价统计",
+            "url": "statistics/evaluation_list.html"
+          },
+          {
+            "name": "帖子统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "返利统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "订单统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "粉丝统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "退换货统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "财务支出统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+          {
+            "name": "财务收入统计",
+            "url": "html/statistics/evaluation_list.html"
+          },
+        ]
+      }]
+    }
+
+  ];
+
+  init_menu([]);
+
+  addTab('首页', 'html/newPage/index.html');
+
+
+
+  $(function () {
+    if ($("#head_menu").children("a").size() > 5) {
+      $(".logo").attr("style", "min-width: 80px;width:150px;overflow: hidden;");
+    }
+  })
+</script>
+
+</html>

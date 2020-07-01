@@ -1,0 +1,117 @@
+
+
+<div id="userList" class="listModal">
+  
+
+  <div class="tableBox">
+     <div class="row fc" >
+      <div class="col-md-3 row align-items-center">累计打赏金额（元）：2222</div>
+      <div class="col-md-4 row align-items-center">累计打赏次数：2344</div>
+    </div>
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+<div class="mt60" >
+<div class="row align-items-center"  >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  id="reward" >打赏</span>
+      </div>
+
+       <div class="col-md-2">
+        <span class="btn btn-primary w120" >返回</span>
+      </div>
+    
+      <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+</form>
+</div>
+
+
+<script>
+
+
+  $(function() {
+
+
+    $("#reward").click(function(){
+      layerOpen("reward.html");
+    });
+
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"nickname":"user-0","sex":"女","age":"男","militaryrank":"司令","reward":255,"consumption":24,"Channelofconcern":"小程序","attentiontime":"2019-10-01"},{"id":10000,"nickname":"user-0","sex":"女","age":"男","militaryrank":"司令","reward":255,"consumption":24,"Channelofconcern":"小程序","attentiontime":"2019-10-01"},{"id":10000,"nickname":"user-0","sex":"女","age":"男","militaryrank":"司令","reward":255,"consumption":24,"Channelofconcern":"小程序","attentiontime":"2019-10-01"},{"id":10000,"nickname":"user-0","sex":"女","age":"男","militaryrank":"司令","reward":255,"consumption":24,"Channelofconcern":"小程序","attentiontime":"2019-10-01"}],
+        cols: [
+          [{
+            field: 'id',
+          //  width: 80,
+            title: '用户ID',
+           // sort: true
+          }, {
+            field: 'nickname',
+         //   width: 80,
+            title: '用昵称'
+          }, {
+            field: 'sex',
+          //  width: 80,
+            title: '性别',
+           // sort: true
+          }, {
+            field: 'age',
+           // width: 80,
+            title: '年龄'
+          }, {
+            field: 'militaryrank',
+            title: '军衔',
+           // width: 80
+          }, {
+            field: 'reward',
+            //width: 80,
+            title: '打赏',
+          //  sort: true
+          }, {
+            field: 'consumption',
+           // width: 80,
+            title: '累计消费',
+           // sort: true
+          }, {
+            field: 'Channelofconcern',
+           // width: 80,
+            title: '关注渠道'
+          }, {
+            field: 'attentiontime',
+           // minwidth: 100,
+            title: '关注时间',
+           // sort: true
+          }
+      
+          ]
+        ],
+        page: true
+      });
+
+
+
+});
+
+});
+
+
+
+
+</script>

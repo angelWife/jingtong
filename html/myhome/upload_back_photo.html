@@ -1,0 +1,71 @@
+<style>
+.warp{
+  padding:20px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+.title{
+  font-weight: bold;
+  font-size:22px;
+}
+.text{
+  font-size: 14px;
+  color: #757575;
+  margin-top:20px;
+}
+.text1{
+  font-size: 12px;
+  color: #b4b2b5;
+  margin-top:10px;
+  margin-bottom: 50px;
+}
+</style>
+
+<div class="my-layer-con" >
+  <div class="warp" >
+      <div class="text-center title" >背景图设置</div>   
+  </div>
+   <div class="text-center" >
+    <img src="../images/add_pic.png" id="do_upload"  />
+  </div>
+  <div class="text-center text" >
+    上传小铺背景图片
+  </div>
+  <div class="text-center text1" >
+    图片尺寸xxxx不能超过300K
+  </div>
+
+
+        <div class="btnBox text-center">
+          <button class="btn btn-primary w100" >确定</button>
+          <button class="btn btn-primary w100 ml40" >取消</button>
+        </div>
+      
+</div>
+<script>
+  $(function() {
+    layui.use(['upload'], function() {
+   
+      var upload = layui.upload;
+      var uploadInst = upload.render({
+        elem: '#do_upload',
+        url: '/upload/',
+        before: function(obj) {
+          obj.preview(function(index, file, result) {
+            $('#picBox').attr('src', result); //图片链接（base64）
+          });
+        },
+        done: function(res) {
+   
+          if (res.code > 0) {
+            return layer.msg('上传失败');
+          }
+  
+        },
+        error: function() {
+         
+        }
+      });
+    });
+  });
+</script>

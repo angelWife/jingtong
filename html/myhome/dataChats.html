@@ -1,0 +1,608 @@
+<link rel="stylesheet" href="../css/home.css">
+<script src="../js/echarts.min.js"></script>
+<style>
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 0px;
+}
+.radius{
+  border-radius: 4px;
+}
+.con .row > div:last-of-type{
+  padding-right:0px; 
+
+}
+.con{
+  background-color: #EFF3F6;padding:0px;
+}
+.tab{
+  width:100%;height:220px;background-color:white;margin-top: 10px;padding-left:10px; 
+}
+.tab1{
+  width:100%;height:390px;background-color:white;margin-top: 10px;padding-left:10px;
+}
+.title{
+  height:30px;
+  width:100%;
+}
+.title > span:nth-of-type(1){
+  font-weight: bold;
+  margin-left: 10px;
+  line-height: 30px;
+  color: #757575;
+}
+.title > span:nth-of-type(2),.title > span:nth-of-type(3){
+  float: right;
+  margin-right: 10px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.title > span:nth-of-type(2).circle,.title > span:nth-of-type(3).circle{
+  display: inline;
+  padding:0px 6px;
+  border-radius: 10px;
+  border:1px solid red;
+  color: red;
+  line-height: 20px;
+  margin-top:5px;
+}
+
+.font1_4{
+  font-size: 14px;
+}
+.font2_0{
+  font-size: 20px;
+}
+.color1{
+  color: #757575;
+}
+.color2{
+  color: #333;
+}
+#dataChats_one,#dataChats_two,#dataChats_three,#dataChats_four{
+  width:100%;
+  height:85%;
+}
+
+</style>
+
+
+<div  class="home">
+  <div class="shop_modal">
+    <div class="row align-items-center">
+      <div class="pic">
+        <img src="../images/p1.jpg" />
+      </div>
+      <div class="msg col">
+        <div class="name">
+          <span class="fs15 c666">无心痛苦</span>
+          <span class="mark gray">未认证</span>
+          <span class="mark green">已认证</span>
+          <span class="mark orange">上尉</span>
+          <span class="jingling">精灵1</span>
+        </div>
+        <div class="item">
+          <span>小铺ID：6556SSSS54</span>
+          <span>上次登录时间：2019-10-12 09:30</span>
+        </div>
+        <div class="item">
+          小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介
+        </div>
+        <div class="edit">
+          <a href="javascript:;">修改</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="con" >
+    
+  <div class="row align-items-center" >
+
+    <div class="col-md-4 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>最热商品</span>
+              <span>∨</span>
+              <span>2019</span>
+              
+            </div>
+            <div>
+              <table class="layui-table" style="border:0px;" lay-skin="line" >
+                <tbody>
+                  <tr>
+                    <td>商品名称</td>
+                    <td>总成交量（单）</td>
+                    <td>总成交金额</td>
+                  </tr>
+                  <tr>
+                    <td>ABX</td>
+                    <td>222</td>
+                    <td>3333</td>
+                  </tr>
+                  <tr>
+                    <td>ABX</td>
+                    <td>222</td>
+                    <td>3333</td>
+                  </tr>
+                  <tr>
+                    <td>ABX</td>
+                    <td>222</td>
+                    <td>3333</td>
+                  </tr>
+
+                </tbody>
+              </table>  
+
+               
+            </div>
+
+          </div>
+
+     </div>
+
+     <div class="col-md-5 radius" >
+          <div class="tab" >
+            <div class="title" >
+              <span>经营曲线-订单量\成交额\打赏额\兑奖额</span>
+            </div>
+            <div id="dataChats_one" ></div>
+          </div>
+     </div>
+
+     <div class="col-md-3 radius">
+          <div class="tab" >
+            <div class="title" >
+              <span>人民币</span>
+              <span class="circle" >转账</span>
+            </div>
+            <div style="line-height:45px;" >
+                <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >余额</div>
+                  <div class="col-md-6 font2_0 color2" >￥23233</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >可转账</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                </div>
+                 <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >保证金</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                </div>
+                 <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >待对账</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                   <div class="col-md-3" ><span class="btn btn-primary" >对账</span></div>
+                </div>
+            </div>
+
+          </div>
+
+     </div>   
+    </div>
+
+
+<div class="row align-items-center" >
+
+    <div class="col-md-9 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>粉丝分析</span>
+            </div>
+            <div  id="dataChats_two"></div>
+          </div>
+
+     </div>
+
+     <div class="col-md-3 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>星票</span><span class="circle" >兑奖</span>
+            </div>
+             <div style="line-height:45px;" >
+                <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >余额</div>
+                  <div class="col-md-6 font2_0 color2" >￥23233</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >可转账</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                </div>
+                 <div class="row item" >
+                  <div class="col-md-4 font1_4 color1" >累计收益</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                </div>
+                 <div class="row item" >
+                  <div class="col-md-3 font1_4 color1" >待对账</div>
+                  <div class="col-md-6 font2_0 color2" >￥232万</div>
+                   <div class="col-md-3" ><span class="btn btn-primary" >对账</span></div>
+                </div>
+            </div>
+
+          </div>
+
+     </div>   
+    </div>
+
+
+    <div class="row align-items-center" >
+
+     <div class="col-md-8 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>访问分析</span>
+            </div>
+             <div id="dataChats_three"></div>
+          </div>
+
+     </div>
+
+     <div class="col-md-4 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>商品分析</span>
+            </div>
+            <div  id="dataChats_four"></div>
+          </div>
+
+     </div>   
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+    
+
+$(function() {
+    setChatsOne();
+    setChatsTwo();
+    setChatsThree();
+    setChatsFour();
+  });
+
+  function setChatsOne() {
+
+    var myChart = echarts.init(document.getElementById('dataChats_one'));
+    var option = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          crossStyle: {
+            color: '#999'
+          }
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          dataView: {
+            show: true,
+            readOnly: false
+          },
+          magicType: {
+            show: true,
+            type: ['line', 'bar']
+          },
+          restore: {
+            show: true
+          },
+          saveAsImage: {
+            show: true
+          }
+        }
+      },
+      legend: {
+        data: ['蒸发量', '平均温度']
+      },
+      xAxis: [{
+        type: 'category',
+        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        axisPointer: {
+          type: 'shadow'
+        }
+      }],
+      yAxis: [{
+          type: 'value',
+          name: '收入',
+          min: 0,
+          max: 250,
+          interval: 50,
+          axisLabel: {
+            formatter: '{value} ml'
+          }
+        },
+        {
+          type: 'value',
+          name: '温度',
+          min: 0,
+          max: 25,
+          interval: 5,
+          axisLabel: {
+            formatter: '{value} °C'
+          }
+        }
+      ],
+      series: [{
+          name: '与收入',
+          type: 'bar',
+          data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+        },
+        {
+          name: '平均收入',
+          type: 'line',
+          yAxisIndex: 1,
+          data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+        }
+      ]
+    };
+    myChart.setOption(option);
+  }
+
+   function setChatsTwo() {
+    var myChart = echarts.init(document.getElementById('dataChats_two'));
+    var option = {
+      legend: {
+        show: false
+      },
+      tooltip: {},
+      dataset: {},
+      series: [{
+        type: 'pie',
+        radius: 60,
+        center: ['10%', '50%'],
+        name: '周粉丝',
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        },
+        data: [{
+            value: 335,
+            name: '直达'
+          },
+          {
+            value: 679,
+            name: '营销广告'
+          },
+          {
+            value: 1548,
+            name: '搜索引擎'
+          }
+        ],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        encode: {
+          itemName: 'product',
+          value: '2013'
+        }
+      }, {
+        type: 'pie',
+        radius: 60,
+        center: ['35%', '50%'],
+        name: '月粉丝',
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        },
+        data: [{
+            value: 335,
+            name: '直达'
+          },
+          {
+            value: 679,
+            name: '营销广告'
+          },
+          {
+            value: 1548,
+            name: '搜索引擎'
+          }
+        ],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        encode: {
+          itemName: 'product',
+          value: '2013'
+        }
+      }, {
+        type: 'pie',
+        radius: 60,
+        name: '年粉丝',
+        center: ['60%', '50%'],
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        },
+        data: [{
+            value: 335,
+            name: '直达'
+          },
+          {
+            value: 679,
+            name: '营销广告'
+          },
+          {
+            value: 1548,
+            name: '搜索引擎'
+          }
+        ],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        encode: {
+          itemName: 'product',
+          value: '2014'
+        }
+      }, {
+        type: 'pie',
+        radius: 60,
+        name: '其他',
+        center: ['85%', '50%'],
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        },
+        data: [{
+            value: 335,
+            name: '直达'
+          },
+          {
+            value: 679,
+            name: '营销广告'
+          },
+          {
+            value: 1548,
+            name: '搜索引擎'
+          }
+        ],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        encode: {
+          itemName: 'product',
+          value: '2015'
+        }
+      }]
+    };
+    myChart.setOption(option);
+  }
+
+  function setChatsThree() {
+    var myChart = echarts.init(document.getElementById('dataChats_three'));
+    var option = {
+      title: {
+        text: '访问分析',
+        subtext: ''
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: ['11月11日','11月12日']
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: {
+        type: 'category',
+        data: ['7:00-9:00', '9:00-10:00', '10:00-13:00', '13:00-15:00', '15:00-17:00',
+          '17:00-19:00', '19:00-21:00', '21:00-7:00'
+        ]
+      },
+      series: [{
+        name: '11月11日',
+        type: 'bar',
+        data: [18203, 23489, 29034, 104970, 131744, 630230, 12354, 2135]
+      },{
+        name: '11月12日',
+        type: 'bar',
+        data: [18203, 23489, 29034, 104970, 131744, 630230, 12354, 2135]
+      }]
+    };
+    myChart.setOption(option);
+  }
+
+function setChatsFour() {
+    var myChart = echarts.init(document.getElementById('dataChats_four'));
+    var option = {
+      title: {
+        text: '商品分析',
+        textStyle: {
+          fontFamily: 'BlinkMacSystemFont',
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br />{b} : {c} ({d}%)"
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        show: false,
+        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+      },
+      series: [{
+        name: '访问来源',
+        type: 'pie',
+        radius: '55%',
+        center: ['50%', '60%'],
+        data: [{
+            value: 335,
+            name: '直接访问'
+          },
+          {
+            value: 310,
+            name: '邮件营销'
+          },
+          {
+            value: 234,
+            name: '联盟广告'
+          },
+          {
+            value: 135,
+            name: '视频广告'
+          },
+          {
+            value: 1548,
+            name: '搜索引擎'
+          }
+        ],
+        itemStyle: {
+          emphasis: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }]
+    };
+    myChart.setOption(option);
+  }
+</script>
+

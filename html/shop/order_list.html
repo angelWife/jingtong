@@ -1,0 +1,290 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">商品名称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入商品名称" />
+        </div>
+      </div>
+
+    
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">拼购</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">用户昵称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入用户昵称" />
+        </div>
+      </div>
+
+
+     <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">订单号</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入订单号" />
+        </div>
+      </div>
+
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">完成时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请选择完成时间" id="finish_time" />
+        </div>
+      </div>
+
+
+  </div>
+
+     <div class="row" style="margin-top:20px;" >
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">下单时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请选择下单时间" id="create_time" />
+        </div>
+      </div>
+
+
+      <div class="col-md-6 row align-items-center"></div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  id="add" > <span class="layui-icon layui-icon-add-1"></span> 新增</button>
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+ 
+
+{{#  if(d.flag == 1){ }}
+  <span class="layui-btn layui-btn-xs" lay-event="detail">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  >取消</span>
+{{#  } else if(d.flag == 2) { }}
+
+  <span class="layui-btn layui-btn-xs"  lay-event="detail">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="edit">退货完成</span>
+   <span class="layui-btn layui-btn-danger layui-btn-xs"   lay-event="jujue"  >拒绝</span>
+
+{{#  } else { }}
+  <span class="layui-btn layui-btn-xs"  lay-event="detail">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="fahuo">发货</span>
+
+{{#  } }}
+
+
+</script>
+
+<script>
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        range: true,
+        elem: '#finish_time'
+      });
+
+       laydate.render({
+        range: true,
+        elem: '#create_time'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+          [{
+            field: 'id',
+            width: 80,
+            title: '订单编号',
+            sort: true
+          }, {
+            field: 'aaa',
+            width: 80,
+            title: '商品名称'
+          }, {
+            field: 'bbb',
+            width: 80,
+            title: '购买数量',
+            sort: true
+          }, {
+            field: 'ccc',
+            width: 80,
+            title: '下单渠道'
+          }, {
+            field: 'ddd',
+            title: '属性2',
+            width: 80
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '用户昵称',
+            sort: true
+          }, {
+            field: 'fff',
+            width: 80,
+            title: '订单金额（元）',
+            sort: true
+          },
+          {
+            field: 'ggg',
+           width: 80,
+            title: '订单金额（元）',
+            sort: true
+          }, 
+          {
+            field: 'hhh',
+           width: 150,
+            title: '实际支付（元）',
+            sort: true
+          }, 
+          {
+            field: 'iii',
+            width: 150,
+            title: '实际支付（星票）',
+            sort: true
+          }, 
+          {
+            field: 'jjj',
+           width: 80,
+            title: '拼购',
+            sort: true
+          }, 
+          {
+            field: 'kkk',
+            width: 120,
+            title: '下单时间',
+            sort: true
+          },
+          {
+            field: 'lll',
+            width: 120,
+            title: '支付时间',
+            sort: true
+          },  
+          {
+            field: 'mmm',
+            width: 120,
+            title: '发货时间',
+            sort: true
+          },  
+          {
+            field: 'nnn',
+            width: 120,
+            title: '完成时间',
+            sort: true
+          },  
+          {
+            field: 'ooo',
+            width: 80,
+            title: '状态',
+            sort: true
+          },    
+          {title: '操作',width:200, align:'center',fixed:'right',templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+          //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'detail'){ 
+
+       loadHtml('mainIframe','shop/order_look.html');
+ 
+  } else if(layEvent === 'del'){ 
+ 
+  } else if(layEvent === 'edit'){ 
+    //do something
+      loadHtml('mainIframe','shop/order_add.html');
+
+  } else if(layEvent === 'fahuo'){
+   
+       layer.open(
+        {
+            type: 1, btn: false, area:["800px","550px"], content: "", title: '商品发货',
+             success: function (dom, index) {
+
+                var a= $(dom).find(".layui-layer-content");
+                if(a.size()==1){
+                     var t_id = "temp_id"+(new Date()).getTime();
+                     a.eq(0).attr("id",t_id);
+                     a.eq(0).css("overflow-x","hidden");
+                     loadHtml(t_id,'shop/order_fahuo.html');
+                }
+             }
+        });
+
+
+
+  }
+});
+
+
+    });
+
+    $("#add").click(function(){
+
+        loadHtml('mainIframe','shop/order_add.html');
+
+    });
+
+
+
+  });
+
+
+
+
+</script>

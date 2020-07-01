@@ -1,0 +1,296 @@
+
+
+ <div class="addFormModal form-horizontal bg_white">
+   <form  class="form" >
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">商品编号</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">评价ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">评价用户名</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">商品名称</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+       
+      <div class="control-label col-md-2 text-right">商品SKU</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div> 
+
+    </div>
+   <div class="row align-items-center">
+     <div class="control-label col-md-2 text-right">总评分（分）</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right">规格1</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+    </div>   
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">服务态度（分）</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">规格2</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+
+      <div class="control-label col-md-2 text-right">物流服务（分）</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">匿名</div>
+      <div class="col-md-4">
+        <select class="form-control"  readonly="" >
+            <option>匿名</option>
+          </select>
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">评价内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  readonly=""    ></textarea>
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">上传图片</div>
+      <div class="col-md-4">
+        <div class="layui-upload">
+          <button type="button" class="layui-btn layui-btn-sm" id="upLoadPic">上传图片</button>
+          <div class="layui-upload-list layui-inline">
+            <img class="layui-upload-img" id="picBox">
+            <p id="demoText"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">评价时间</div>
+      <div class="col-md-4">
+        2019-12-01 12:20:00
+      </div>
+
+    </div>
+    
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">回复内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  readonly=""    ></textarea>
+      </div>
+    </div>
+
+   
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">回复时间</div>
+      <div class="col-md-4">
+        2019-12-01 12:20:00
+      </div>
+
+    </div>
+
+
+<div  class="mt60" >
+  <div class="row align-items-center"  >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  id="reply" >回复</span>
+      </div>
+
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  >返回</span>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+  </div>
+</div>
+
+
+</form>
+</div>
+
+<div style="display:none;" id="reply_con" >
+<div class="addFormModal form-horizontal bg_white">
+<form style="width:700px;" >
+    
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">回复内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control" style="min-height:200px;"  ></textarea>
+      </div>
+    </div>
+
+   <div class="row align-items-center" style="margin-top:50px;" >
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="control-label col-md-3 text-right">
+        <span class="btn btn-primary "  >确认</span>
+      </div>
+      <div class="col-md-3">
+       <span class="btn btn-primary "  >返回</span>
+      </div>
+      <div class="control-label col-md-3 text-right"></div>
+    </div>
+
+</form>
+</div>
+</div>
+
+
+<script>
+
+
+function reply(){
+layer.open({type: 1, btn: false, area:["800px","500px"], content:$("#reply_con").html(), title:"回复"});
+}
+
+
+  $(function() {
+
+    $("#reply").click(function(){
+      reply();
+    });
+
+
+  layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+
+  var AddData = [{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2}];
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:AddData,
+        cols: [
+          [{
+             field: 'id',
+          //  width: 120,
+            title: '商品SKU',
+            // edit: 'text',
+            //sort: true
+          }, {
+            field: 'aaa',
+          //  width: 120,
+            title: '商品名称',
+           // edit: 'text',
+          }, {
+           // field: 'bbb',
+           // width: 120,
+            title: '商品编号',
+           // edit: 'text',
+           // sort: true
+          }, {
+            field: 'ccc',
+          //  width: 80,
+            title: '品牌',
+          //  edit: 'text',
+          }, {
+            field: 'ddd',
+            title: '规格1',
+           // width: 80,
+           // edit: 'text',
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '规格2',
+          //  edit: 'text',
+          }, {
+            field: 'fff',
+           // width: 120,
+            title: '分类路径',
+         //   sort: true
+         //edit: 'text',
+          },
+          {
+            field: 'ggg',
+          // width: 80,
+            title: '原价',
+            //sort: true
+           // edit: 'text',
+          }, 
+          {
+            field: 'hhh',
+          // width: 150,
+            title: '销售价',
+            //edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'iii',
+           // width: 150,
+            title: '重量（克）',
+            // edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'jjj',
+           //width: 80,
+            title: '运费',
+           //  edit: 'text',
+           // sort: true
+          } 
+         
+          ]
+        ],
+        page: false
+      });
+
+
+
+});
+
+
+});
+
+
+
+
+
+  
+
+
+
+</script>

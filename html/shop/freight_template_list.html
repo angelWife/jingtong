@@ -1,0 +1,157 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">模板名称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" />
+        </div>
+      </div>
+
+    
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-2 row align-items-center"></div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  id="add" > <span class="layui-icon layui-icon-add-1"></span> 新增</button>
+      </div>
+      
+      
+    </div>
+
+  
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+
+
+ {{#  if(d.flag == 1){ }}
+   <span class="layui-btn layui-btn-xs layui-btn-normal"  lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-normal layui-btn-xs" lay-event="del"  >删除</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="on">启用</span>
+
+
+{{#  } else { }}
+   <span class="layui-btn layui-btn-xs layui-btn-normal"  lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-normal layui-btn-xs" lay-event="del"  >删除</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="off">关闭</span>
+
+{{#  } }}
+
+
+
+</script>
+
+<script>
+
+
+  $(function() {
+
+    layui.use(['table'], function() {
+
+      var table = layui.table;
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+          [{
+            field: 'id',
+          //  width: 80,
+            title: '模板ID',
+            sort: true
+          }, {
+            field: 'aaa',
+           // width: 80,
+            title: '模板名称'
+          }, {
+            field: 'bbb',
+          //  width: 80,
+            title: '承运商',
+           // sort: true
+          }, {
+            field: 'ccc',
+           // width: 80,
+            title: '是否默认'
+          }, {
+            field: 'ddd',
+            title: '备注',
+           // width: 80
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '状态',
+            sort: true
+          },
+          {title: '操作',width:280, align:'center', templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+          //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'look'){ 
+       loadHtml('mainIframe','shop/goods_look.html',{},"查看商品");
+  } else if(layEvent === 'del'){ 
+  
+  } else if(layEvent === 'edit'){ //编辑
+   
+       loadHtml('mainIframe','shop/goods_edit.html',{},"编辑商品");
+
+  }else if(layEvent === 'on'){ //编辑
+   
+   layer.confirm("确定启用改模板吗？",function(){alert(1111);},function(){alert(2222);});
+     
+  }else if(layEvent === 'off'){ //编辑
+   
+     layer.confirm("确定关闭改模板吗？",function(){alert(1111);},function(){alert(2222);});
+  }
+  
+});
+
+});
+
+    $("#add").click(function(){
+
+        loadHtml('mainIframe','shop/freight_template_add.html',{},"添加运费模板");
+
+    });
+
+
+
+});
+
+
+
+
+</script>

@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../css/set.css?sssss3">
+<div class="warp fl mb50 full pb30" style="padding-bottom:100px;" >
+
+        <div class="bank" >
+          <div class="icon" >
+              <img src="../images/bank.png" />
+          </div>
+          <div class="bank_name" >
+              <div>中国工商银行</div>
+              <div>储蓄卡</div>
+          </div>
+          <div class="bank_no" >**** **** **** 3232</div>
+          <img class="del" src="../images/del.png" onclick="del()"  />
+        </div>
+
+        <div class="bank1"  >
+          <img class="add_card" src="../images/add_card.png" />
+        </div>
+
+</div>
+
+
+</form>
+</div>
+</div>
+
+<script>
+  
+
+function del(){
+
+  layer.confirm("确定要删除吗？",function(){});
+
+}
+
+
+ $(function() {
+
+layui.use(['table'], function() {});
+
+
+
+$(".bank1").click(function(){
+
+  loadHtml('mainIframe','myhome/bank_add.html');
+
+});
+
+
+
+
+
+});    
+
+
+
+</script>

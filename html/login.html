@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>登录</title>
+  <link rel="stylesheet" href="../dist/bootstrap4/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css?sdsd">
+  <link rel="stylesheet" href="../css/style.css?skf">
+  <link rel="stylesheet" href="../dist/fonts/iconfont.css">
+  <script src="../js/jquery-2.1.1.js"></script>
+  <script src="../dist/layui/layui.js"></script>
+  <script src="../js/common.js?ddd"></script>
+  <script src="../dist/bootstrap4/js/bootstrap.min.js"></script>
+</head>
+
+<body class="login relative" style="overflow:hidden;">
+  <!--  <img src="../images/b10.png" style="position:absolute;z-index:10;left:5%;bottom:5%;width:250px;" /> -->
+  <div class="container">
+    <div class="loginHead" style="height:60px;">
+      <div class="head row">
+        <div class="logo">
+          <!-- <img src="../images/icon-logo.png" /> -->
+          泉铸智慧管网管理平台
+
+        </div>
+        <div class="headBar" id="head_menu"></div>
+        <div class="col-md"></div>
+      </div>
+    </div>
+    <div class="label1"><img src="../images/th.png" /> 依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！</div>
+    <div class="loginMian row align-items-center justify-content-end ">
+      <div class="loginForm " style="margin-right:250px;">
+        <!-- <div class="label2">
+          <img src="../images/th.png" /> 我们不会以任何理由要求您转账汇款，谨防诈骗
+        </div> -->
+        <form action="index.html" style="width:80%;margin-left:10%;">
+
+          <div class="logo">
+            <div class="row" id="loginHeader">
+              <div class="col-md-6 blue pointer" data-tab="dm">
+                动态码登录
+              </div>
+              <div class="col-md-6 pointer" data-tab="pd">
+                密码登录
+              </div>
+            </div>
+          </div>
+          <div class="tab-content-box">
+            <div class="tab-content" id="dm">
+              <div id="Dynamic" class="tab-pane  active">
+                <div class="input">
+                  <input type="text" class="form-control" placeholder="请输入手机号">
+                  <span class="red">请输入正确的手机号</span>
+                </div>
+                  <div class="input relative">
+                    <input type="text" class="form-control" placeholder="请输入动态码" autocomplete="off">
+                    <div class="varify_code" id="code">获取动态码</div>
+                    <span class="red">验证码不正确</span>
+                  </div>
+                  
+              </div>
+            </div>
+            <div class="tab-content" id="pd">
+              <div id="password" class="tab-pane  active">
+                <div class="input">
+                  <input type="text" class="form-control" placeholder="请输入用户名">
+                  <span class="red none" id="name">用户名不存在</span>
+                </div>
+                <div class="input">
+                  <input type="password" class="form-control" placeholder="请输入登录密码">
+                  <span class="red none" id="password">密码不正确</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btnBox">
+            <button class="btn btn-primary" type="submit">登录</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  $("#loginHeader > div").click(function () {
+    $(".tab-content").hide();
+    $(this).addClass("blue").siblings().removeClass('blue');
+    $("#" + $(this).data("tab")).fadeIn();
+  });
+</script>
+
+</html>

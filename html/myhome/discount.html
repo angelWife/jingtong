@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="../../dist/layui/css/layui.css">
+  <link rel="stylesheet" href="../../dist/bootstrap4/css/bootstrap.css">
+  <link rel="stylesheet" href="../../dist/fonts/iconfont.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/set.css?f9s">
+  <script src="../../js/jquery-2.1.1.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../dist/layui/layui.all.js"></script>
+  
+</head>
+
+<body class="bg_white">
+  <div class="warp fl mb50 full discountList" style="padding-bottom:100px;">
+    <div class="title">精灵折扣</div>
+    <ul class="clearfix">
+      <li class="discount">
+        <div class="icon">
+          <img src="../../images/discount.png" />
+        </div>
+        <div class="relative" style="position: relative;">
+          <div class="name">精灵名称</div>
+          <div class="desc">平台折扣9.9折</div>
+          <!-- <img class="del_img" src="../../images/del1.png" onclick="del()" /> -->
+          <div class="del_img layui-icon layui-icon-delete"></div>
+        </div>
+      </li>
+      <li class="discount">
+        <div class="icon">
+          <img src="../../images/discount.png" />
+        </div>
+        <div class="relative" style="position: relative;">
+          <div class="name">精灵名称</div>
+          <div class="desc">平台折扣9.9折</div>
+          <!-- <img class="del_img" src="../../images/del1.png" onclick="del()" /> -->
+          <div class="del_img layui-icon layui-icon-delete"></div>
+        </div>
+      </li>
+      <li class="discount discount_add"  id="add">
+        <div class="addBox">
+          <!-- <img src="../../images/jia1.png" /> -->
+          <div class="layui-icon layui-icon-addition"></div>
+          <div>添加精灵折扣</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </form>
+  </div>
+  </div>
+
+</body>
+<script>
+  function del() {
+
+    layer.confirm("确定要删除吗？", function () {});
+
+  }
+  $(function () {
+
+    layui.use(['table'], function () {});
+
+    $("#add").click(function () {
+
+      layerOpen("select_discount_list.html", 0, "800px", "600px");
+
+    });
+  });
+</script>
+</html>

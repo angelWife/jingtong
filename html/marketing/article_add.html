@@ -1,0 +1,82 @@
+  <script src="../../dist/ckeditor/ckeditor.js"></script>
+
+ <div class="addFormModal form-horizontal bg_white"  style="" >
+  <form  class="form" >
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly=""  value=""  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>数据类型</div>
+      <div class="col-md-4">
+        <select class="form-control" readonly=""  >
+            <option>文章</option>
+          </select>
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>标题</div>
+      <div class="col-md-10">
+        <input class="form-control"  value=""  />
+      </div>
+ 
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>发布内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  placeholder=""  id="content" ></textarea>
+      </div>
+    </div>
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>添加链接</div>
+      <div class="col-md-8">
+        <input class="form-control"  value=""  />
+      </div>
+      <div class="col-md-2">
+        <span class="btn btn-primary" id="select_goods" >添加链接</span>
+      </div>
+ 
+    </div>
+
+  
+
+
+<div class="mt60" >
+  <div class="row align-items-center" >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-6">
+        <span class="btn btn-primary w120 " >保存</span>
+        <span class="btn btn-primary w150 ml15" >保存并继续写文章</span>
+        <span class="btn btn-primary w120 ml15" >返回</span>
+      </div>
+      
+    
+      <div class="col-md-4">
+      </div>
+    </div>
+</div>
+
+</form>
+</div>
+
+<script>
+
+     window.createEditor('#content', {height: 250});
+     $("#select_goods").click(function(){
+
+      layerOpen("marketing/add_link_goods.html","选择商品","900px","600px");
+
+    });
+
+
+
+
+
+</script> 

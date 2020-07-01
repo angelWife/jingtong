@@ -1,0 +1,177 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+  <div class="searchBox form-horizontal">
+    <div class="row">
+
+       <div class="col-md-4 row align-items-center">
+         <div class="control-label col-md-4 text-right">最近沟通</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" />
+        </div>    
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">用户昵称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" />
+        </div>
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" id="timerStart" />
+        </div>
+      </div>
+
+
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+        <div class="col-md-4 row align-items-center">
+         <div class="control-label col-md-4 text-right">用户更新</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" />
+        </div>    
+      </div>
+
+
+      <div class="col-md-6 row align-items-center"></div>
+
+      <div class="col-md-2 row align-items-center"> <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button></div>
+
+
+    </div>
+
+
+
+
+  </div>
+  <div class="tableBox">
+     <div class="row fc" >
+      <div class="col-md-2 row align-items-center">本月已发送8条，剩余2条</div>
+      <div class="col-md-4 row align-items-center"><span id="buy" class="btn btn-primary" >购买发送额度</span></div>
+    </div>
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<div style="display:none;" id="reply_con" >
+<div class="addFormModal form-horizontal bg_white">
+<form style="width:700px;" >
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">回复内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control" style="min-height:200px;"  ></textarea>
+      </div>
+    </div>
+
+   <div class="row align-items-center" style="margin-top:50px;" >
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="control-label col-md-3 text-right">
+        <span class="btn btn-primary w120"  >确认</span>
+      </div>
+      <div class="col-md-3">
+       <span class="btn btn-primary w120"  >返回</span>
+      </div>
+      <div class="control-label col-md-3 text-right"></div>
+    </div>
+
+</form>
+</div>
+</div>
+
+<script type="text/html" id="barDemo"  >
+  <a class="layui-btn layui-btn-xs"  style="color:white;" lay-event="look">查看</a>
+  <a class="layui-btn layui-btn-xs layui-btn-normal "  style="color:white;" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs"  style="color:white;" lay-event="del"  >删除</a>
+</script>
+
+<script>
+
+function reply(){
+layer.open({type: 1, btn: false, area:["800px","500px"], content:$("#reply_con").html(), title:"回复"});
+}
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+       // toolbar: "#toolbarDemo",
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"nickname":"user-0","latest_communication":"xxxxxxx","is_friend":"是","last_update_user":"xxx","last_update_time":"2019-10-01"},{"id":10001,"nickname":"user-0","latest_communication":"xxxxxxx","is_friend":"是","last_update_user":"xxx","last_update_time":"2019-10-01"},{"id":10002,"nickname":"user-0","latest_communication":"xxxxxxx","is_friend":"是","last_update_user":"xxx","last_update_time":"2019-10-01"}],
+        cols: [
+          [{
+            field: 'id',
+           // width: 80,
+            title: '用户ID',
+            sort: true
+          }, {
+            field: 'nickname',
+          //  width: 80,
+            title: '用昵称'
+          }, {
+            field: 'latest_communication',
+          //  width: 80,
+            title: '最新沟通',
+            sort: true
+          }, {
+            field: 'is_friend',
+           // width: 80,
+            title: '是否好友'
+          }, {
+            field: 'last_update_user',
+            title: '最后更新用户',
+          //  width: 80
+          }, {
+            field: 'last_update_time',
+          //  width: 80,
+            title: '最后更新时间',
+            sort: true
+          },
+          {title: '操作',width:200, align:'center', templet: '#barDemo'}
+
+          ]
+        ],
+        page: true
+      });
+
+
+     //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'look'){ 
+      loadHtml('mainIframe','marketing/news_look.html');
+  } 
+});
+
+});
+
+    $("#buy").click(function(){
+       loadHtml('mainIframe','marketing/buy_news.html');
+
+    });
+
+
+});
+
+
+
+
+</script>

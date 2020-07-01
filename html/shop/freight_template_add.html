@@ -1,0 +1,180 @@
+
+
+ <div class="addFormModal form-horizontal bg_white"  style="" >
+  <form  class="form" >
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">模板ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value=""  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">承运商</div>
+      <div class="col-md-4">
+          <select class="form-control"   >
+            <option>请选择</option>
+          </select>
+      </div>
+
+    </div>
+
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">模板名称</div>
+      <div class="col-md-4">
+        <input class="form-control" value=""  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">状态</div>
+      <div class="col-md-4">
+        <select class="form-control"   >
+            <option>请选择</option>
+          </select>
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">是否默认模板</div>
+      <div class="col-md-4">
+        <select class="form-control"   >
+            <option>请选择</option>
+          </select>
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">发货地</div>
+      <div class="col-md-4 row">
+        <div class="col-md-4">
+          <select class="form-control"    >
+            <option>省</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select class="form-control"  >
+            <option>市</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select class="form-control"    >
+            <option>区</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">备注</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  placeholder=""  ></textarea>
+      </div>
+ 
+    </div>
+
+  <div class="row align-items-center" >
+  <div class="col-md-11">
+    <table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>省市</th>
+          <th>首重（元）</th>
+          <th>续重（元）</th>
+          <th>首重重量（千克）</th>
+          <th>续重重量（千克）</th>
+          <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td></td>
+          <td class="relative"  >
+          <input class="form-control"  value=""  />
+          <i class="layui-icon layui-icon-search my-icon-search" style="top:15px;" ></i>
+          </td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td> <span class="btn btn-primary " >删除</span></td>
+        </tr>
+         <tr>
+          <td></td>
+          <td class="relative" >
+          <input class="form-control"  value=""  />
+          <i class="layui-icon layui-icon-search my-icon-search" style="top:15px;" ></i>
+          </td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><input class="form-control"  value=""  /></td>
+          <td><span class="btn btn-primary " >删除</span></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="col-md-1"><span class="btn btn-primary " >新增</span></div>
+  </div>
+
+
+
+
+
+  <div class="row align-items-center" style="margin-top: 60px;" >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-1">
+        <span class="btn btn-primary " >保存</span>
+      </div>
+
+       <div class="col-md-1">
+        <span class="btn btn-primary " >返回</span>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+    </div>
+
+
+</form>
+</div>
+
+<script>
+  $(function() {
+    layui.use(['upload'], function() {
+     
+      var upload = layui.upload;
+
+      //普通图片上传
+      var uploadInst = upload.render({
+        elem: '#upLoadPic',
+        url: '/upload/',
+        before: function(obj) {
+          //预读本地文件示例，不支持ie8
+          obj.preview(function(index, file, result) {
+            $('#picBox').attr('src', result); //图片链接（base64）
+          });
+        },
+        done: function(res) {
+          //如果上传失败
+          if (res.code > 0) {
+            return layer.msg('上传失败');
+          }
+          //上传成功
+        },
+        error: function() {
+          //演示失败状态，并实现重传
+          var demoText = $('#demoText');
+          demoText.html(
+            '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+          );
+          demoText.find('.demo-reload').on('click', function() {
+            uploadInst.upload();
+          });
+        }
+      });
+    });
+  });
+</script>

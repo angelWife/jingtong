@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="../css/set.css?ffs">
+
+<div class="addFormModal form-horizontal">
+  <form>
+  <div class="row align-items-center">
+    <div class="col-md-12  row align-items-center">
+      
+      <div class="col-md-2 text-center"></div>
+      <div class="col-md-1 text-center">
+        <div class="circle active" >1</div>
+        <div class="varify-text active" >申请入驻</div>
+      </div>
+       <div class="col-md-1 text-center">
+          <div class="line active" ></div>
+      </div>
+       <div class="col-md-1 text-center">
+        <div class="circle active" >2</div>
+        <div class="varify-text active" >身份验证</div>
+      </div>
+       <div class="col-md-1 text-center">
+            <div class="line active" ></div>
+      </div>
+       <div class="col-md-1 text-center">
+        <div class="circle active" >3</div>
+        <div class="varify-text active" >缴保证金</div>
+      </div>
+      <div class="col-md-1 text-center">
+            <div class="line" ></div>
+      </div>
+      <div class="col-md-1 text-center">
+        <div class="circle" >4</div>
+        <div class="varify-text" >开店</div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row align-items-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6  align-items-center text-center">
+       <div class="fs18 c_757575 bold"  >亲爱的小主，就差最后一步就可以拥有自己的店铺啦！</div>
+       <div class="fs18 c_757575 bold"  >注销店铺后，保证金完全退还</div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+  </form>
+</div>
+
+
+ <div class="clear c_757575 mt20" ><br/>支付:</div>
+    <div class="pay clear" >
+      
+      <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan active" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/zfb.png" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >支付宝</div>
+      </div>
+
+      <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/wx.jpg" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >微信支付</div>
+      </div>
+
+       <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/union.png" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >银联支付</div>
+      </div>
+    </div>
+
+
+    <div class="clear c_757575" >
+        &nbsp;&nbsp;支付金额<span class="red fs30" > 99 </span>元
+    </div>
+
+    <div><br/>
+       <span class="btn btn-primary w120 ml30" id="pay_do" >去支付</span><br/><br/>
+    </div>
+
+
+  <script>
+
+ $(function() {
+
+layui.use(['table'], function() {});
+
+$("#pay_do").click(function(){
+
+  layerOpen("myhome/pay.html",0,"800px","600px");
+
+});
+
+
+
+});    
+
+
+
+</script>

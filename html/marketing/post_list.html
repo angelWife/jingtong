@@ -1,0 +1,221 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">发布内容</div>
+        <div class="input col-md-8  ">
+          <input class="form-control" placeholder="" />
+        </div>
+      </div>
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+            <option>审核通过</option>
+          </select>
+        </div>
+      </div>
+
+     
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">数据类型</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+            <option>AAAA</option>
+          </select>
+        </div>
+      </div>
+      
+    </div>
+
+     <div class="row mt20" style="margin-top:20px;" >
+   
+     
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">被举报</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>是</option>
+            <option>否</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">发布时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" id="timerStart" />
+        </div>
+      </div>
+
+
+      <div class="col-md-1 row align-items-center"> </div>
+
+       <div class="col-md-3 row align-items-center text-right"> 
+            <button class="btn btn-primary ml10"  >
+                <span class="glyphicon glyphicon-search"></span> 搜索</button>
+            <button class="btn btn-primary ml10" id="add_post" >发帖</button>
+            <button class="btn btn-primary ml10" id="add_article" >写文章</button>
+       </div>
+
+    </div>
+
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+
+  {{#  if(d.flag == 1){ }}
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="article_look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="article_edit">编辑</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="del"  >删除</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="comment"  >查看评论</span>
+{{#  } else if(d.flag == 2) { }}
+   <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="post_look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="post_edit">编辑</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="del"  >删除</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="comment"  >查看评论</span>
+{{#  } else { }}
+   <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="post_look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="off">下架</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="del"  >删除</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="comment"  >查看评论</span>
+{{#  } }}
+
+</script>
+<script>
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        range: true,
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+         data:[{"id":10000,"aaa":"文章","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"帖子","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+          [{
+            field: 'id',
+            width: 120,
+            title: 'ID',
+           // sort: true
+          },{
+            field: 'aaa',
+            width: 120,
+            title: '数据类型'
+          },{
+            field: 'bbb',
+           width: 120,
+            title: '标题',
+          //  sort: true
+          },{
+            field: 'ccc',
+            width: 120,
+            title: '发布内容'
+          },{
+            field: 'ddd',
+            title: '是否置顶',
+            width: 120,
+          }, {
+            field: 'eee',
+            title: '点赞数',
+            width: 120,
+          }, {
+            field: 'fff',
+            title: '转发数',
+            width: 120,
+          }, {
+            field: 'jjj',
+            title: '评论数',
+           width: 120,
+          }, {
+            field: 'kkk',
+            title: '打赏（元）',
+            width: 120,
+          }, {
+            field: 'hhh',
+            title: '发布时间',
+            width: 120,
+          }, {
+            field: 'iii',
+            title: '最新审核时间',
+            width: 120,
+          }, {
+            field: 'jjj',
+            title: '被举报',
+            width: 120,
+          }, {
+            field: 'nnn',
+            title: '状态',
+            width: 120,
+          },
+           {title: '操作',width:270, align:'center',fixed:'right',templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'article_look'){ //查看
+      loadHtml('mainIframe','marketing/article_look.html');
+  } else if(layEvent === 'post_look'){ 
+     loadHtml('mainIframe','marketing/post_look.html');
+  }else if(layEvent === 'comment'){ 
+    
+  }else if(layEvent === 'del'){ 
+    
+  }else if(layEvent === 'article_edit'){ 
+    loadHtml('mainIframe','marketing/article_look.html');
+  }else if(layEvent === 'post_edit'){ 
+     loadHtml('mainIframe','marketing/post_look.html');
+  }else if(layEvent === 'off'){ 
+    layer.confirm("确定下架吗？",function(){});
+  } 
+
+
+
+});
+
+      
+});
+
+$("#add_post").click(function(){
+   loadHtml('mainIframe','marketing/post_add.html');
+});
+
+$("#add_article").click(function(){
+   loadHtml('mainIframe','marketing/article_add.html');
+});
+
+});
+
+
+
+
+</script>

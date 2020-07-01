@@ -1,0 +1,211 @@
+
+
+<div  class="listModal pd10">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row" >
+    <div class="row col-md-10" >
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">用户ID</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" />
+        </div>
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" id="timerStart" />
+        </div>
+      </div>
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">渠道</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+
+     <div class="col-md-2 align-items-center"> <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+<button class="btn btn-primary "  >导出</button>
+     </div>
+      
+    </div>  
+
+  </div>
+
+
+  <div class="tableBox">
+     <div class="row fc" >
+      <div class="col-md-3 row align-items-center">累计返利次数：2222</div>
+      <div class="col-md-4 row align-items-center">累计返利金额（星票）：2344</div>
+    </div>
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+
+
+</div>
+
+<script>
+
+
+  $(function() {
+
+
+    $("#reward").click(function(){
+      layerOpen("reward.html");
+    });
+
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxx","rrr":"xxx","sss":"xxxx","ttt":"xxx","uuu":"xxxx","vvv":"xxxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxx","rrr":"xxx","sss":"xxxx","ttt":"xxx","uuu":"xxxx","vvv":"xxxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxx","rrr":"xxx","sss":"xxxx","ttt":"xxx","uuu":"xxxx","vvv":"xxxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxx","rrr":"xxx","sss":"xxxx","ttt":"xxx","uuu":"xxxx","vvv":"xxxx","flag":1}],
+        cols: [
+          [{
+            field: 'id',
+            width: 120,
+            title: '时间',
+            rowspan: 2
+           // sort: true
+          },{
+            field: 'aaa',
+            width: 120,
+            title: '商品名',
+            rowspan:2
+          },{
+            field: 'bbb',
+            width: 120,
+            title: '商品编号',
+            rowspan:2
+          },{
+            field: 'ccc',
+            width: 120,
+            title: '自动评分',
+            rowspan:2
+          },
+          {
+            field: 'ddd',
+            width: 120,
+            title: '手动评分',
+            rowspan:2
+          },
+          {
+            field: 'eee',
+            //width: 120,
+            title: '总评分',
+            colspan:5,
+            align:'center'
+          },{
+            field: 'fff',
+            //width: 120,
+            title: '物流服务',
+            colspan:5,
+            align:'center'
+          },{
+            field: 'ggg',
+            //width: 120,
+            title: '服务态度',
+            colspan:5,
+            align:'center'
+          }
+          ],[
+
+          {
+            field: 'hhh',
+            width: 80,
+            title: '五分',
+           // sort: true
+          },{
+            field: 'iii',
+            width: 80,
+            title: '四分'
+          },{
+            field: 'jjj',
+            width: 80,
+            title: '三分'
+          },{
+            field: 'kkk',
+            width: 80,
+            title: '二分'
+          },{
+            field: 'lll',
+            width: 80,
+            title: '一分'
+          },
+          {
+            field: 'mmm',
+            width: 80,
+            title: '五分',
+           // sort: true
+          },{
+            field: 'nnn',
+            width: 80,
+            title: '四分'
+          },{
+            field: 'ooo',
+            width: 80,
+            title: '三分'
+          },{
+            field: 'ppp',
+            width: 80,
+            title: '二分'
+          },{
+            field: 'qqq',
+            width: 80,
+            title: '一分'
+          },
+          {
+            field: 'rrr',
+            width: 80,
+            title: '五分',
+           // sort: true
+          },{
+            field: 'sss',
+            width: 80,
+            title: '四分'
+          },{
+            field: 'ttt',
+            width: 80,
+            title: '三分'
+          },{
+            field: 'uuu',
+            width: 80,
+            title: '二分'
+          },{
+            field: 'vvv',
+            width: 80,
+            title: '一分'
+          }
+          
+
+          ]
+        ],
+        page: true
+      });
+
+
+
+});
+
+});
+
+
+
+
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title></title>
+		<link rel="stylesheet" href="../../dist/layui/css/layui.css" />
+		<link rel="stylesheet" href="../../dist/bootstrap4/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../dist/fonts/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/map.css" />
+		<script src="../../js/jquery-2.1.1.js"></script>
+		<script src="../../dist/layui/layui.all.js"></script>
+		<script>
+			var layer = layui.layer
+			var carousel = layui.carousel
+			var laydate = layui.laydate
+			var table = layui.table
+			var laytree = layui.tree
+			var layTreeSelect = layui.treeSelect
+			var layUpload = layui.upload
+			var layElement = layui.element
+			// });
+		</script>
+	</head>
+
+	<body class="bg_white">
+		<div class="map_modal">
+			<ul class="map_head layui-form clearfix">
+				<li>
+					<select class="form_com" lay-filter="province">
+						<option>请选择</option>
+						<option>江苏省</option>
+					</select>
+				</li>
+				<li>
+					<label class="layui-form-label">密码框</label>
+					<div class="layui-input-inline">
+						<input
+							class="form_com"
+							type="password"
+							name="password"
+							required
+							lay-verify="required"
+							placeholder="请输入密码"
+							autocomplete="off"
+							class="layui-input"
+						/>
+					</div>
+				</li>
+				<li>
+					<button class="layui-btn layui-btn-normal">搜索</button>
+				</li>
+			</ul>
+
+			<div class="map_main" id="index_map"></div>
+		</div>
+		<div class="detailModal com_dialog" id="detailModal">
+			<div class="row m-b-20">
+				<div style="width: 50%;">
+					<div
+						class="layui-carousel"
+						id="prodList"
+						lay-filter="prodList"
+					>
+						<div carousel-item="">
+							<div>条目1</div>
+							<div>条目2</div>
+							<div>条目3</div>
+							<div>条目4</div>
+							<div>条目5</div>
+						</div>
+					</div>
+				</div>
+				<div class="col w50">
+					<div class="form-box">
+						<div class="row item">
+							<div class="name">品名</div>
+							<div class="val col">测试</div>
+						</div>
+						<div class="row item">
+							<div class="name">型号规格</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">数字编号</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">权属单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">制造单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">安装日期</div>
+							<div class="val col">--</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row m-b-20">
+				<div class="col w50">
+					<div class="form-box">
+						<div class="row item">
+							<div class="name">品名</div>
+							<div class="val col">测试</div>
+						</div>
+						<div class="row item">
+							<div class="name">型号规格</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">数字编号</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">权属单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">制造单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">安装日期</div>
+							<div class="val col">--</div>
+						</div>
+					</div>
+				</div>
+				<div class="col w50">
+					<div class="form-box">
+						<div class="row item">
+							<div class="name">品名</div>
+							<div class="val col">测试</div>
+						</div>
+						<div class="row item">
+							<div class="name">型号规格</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">数字编号</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">权属单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">制造单位</div>
+							<div class="val col">--</div>
+						</div>
+						<div class="row item">
+							<div class="name">安装日期</div>
+							<div class="val col">--</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		type="text/javascript"
+		src="//api.map.baidu.com/api?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"
+	></script>
+	<script src="../../js/map.js"></script>
+	<script>
+		$(function () {
+			indexMap()
+		})
+	</script>
+</html>

@@ -1,0 +1,157 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-5 row align-items-center">
+        <div class="control-label col-md-5 text-right">商品名称</div>
+        <div class="input col-md-7">
+          <input class="form-control" placeholder="请输入商品名称" />
+        </div>
+      </div>
+
+    
+      <div class="col-md-5 row align-items-center">
+        <div class="control-label col-md-5 text-right">商品类型</div>
+        <div class="input col-md-7">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+       <div class="col-md-5 row align-items-center">
+        <div class="control-label col-md-5 text-right">商品类型</div>
+        <div class="input col-md-7">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+        <div class="col-md-5 row align-items-center">
+        <div class="control-label col-md-5 text-right">销售状态</div>
+        <div class="input col-md-7">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="select_goods_list"  lay-filter="test" ></table>
+  </div>
+
+
+    <div class="row align-items-center mt30">
+      <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <div class="text-center ">
+          <button class="btn btn-primary w120 tk_sure" >确认</button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="text-center ">
+          <button class="btn btn-primary w120" onclick="layer.closeAll();" >返回</button>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+<script>
+//
+
+  $(function() {
+
+    layui.use(['table'], function() {
+      var table = layui.table;
+      table.render({
+        elem: '#select_goods_list',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+         [{
+            field: 'id',
+            type:"checkbox",
+            width: 80,
+            title: '选择'
+          },{
+            field: 'aaa',
+            width: 150,
+            title: '商品名称'
+          }, {
+            field: 'bbb',
+            width: 120,
+            title: '商品编号',
+           // sort: true
+          }, {
+            field: 'ccc',
+            width: 80,
+            title: '商品SKU'
+          }, {
+            field: 'ddd',
+            title: '分类路径',
+            width: 80
+          }, {
+            field: 'eee',
+            width: 80,
+            title: '规格1',
+          //  sort: true
+          }, {
+            field: 'fff',
+            width: 120,
+            title: '规格2',
+           // sort: true
+          },
+          {
+            field: 'ggg',
+           width: 120,
+            title: '销售价格',
+           // sort: true
+          }, 
+          {
+            field: 'hhh',
+           width: 150,
+            title: '库存',
+           // sort: true
+          }
+        
+          ]
+        ],
+        page: true
+      });
+
+          //监听工具条 
+
+
+    });
+
+
+  });
+
+
+
+
+</script>

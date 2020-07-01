@@ -1,0 +1,232 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">商品名称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入商品名称" />
+        </div>
+      </div>
+
+    
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">评价内容</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入评价内容" />
+        </div>
+      </div>
+
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">匿名</div>
+        <div class="input col-md-8">
+           <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">评价用户名</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="评价用户名" />
+        </div>
+      </div>
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">评价时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请选评价时间" id="create_time" />
+        </div>
+      </div>
+
+     
+
+
+      <div class="col-md-2 row align-items-center"></div>
+
+      <div class="col-md-1 row align-items-center"> 
+        <button class="btn btn-primary "  > <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<div style="display:none;" id="reply_con" >
+<div class="addFormModal form-horizontal bg_white">
+<form style="width:700px;" >
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">回复内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control" style="min-height:200px;"  ></textarea>
+      </div>
+    </div>
+
+   <div class="row align-items-center" style="margin-top:50px;" >
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="control-label col-md-3 text-right">
+        <span class="btn btn-primary w120"  >确认</span>
+      </div>
+      <div class="col-md-3">
+       <span class="btn btn-primary w120"  >返回</span>
+      </div>
+      <div class="control-label col-md-3 text-right"></div>
+    </div>
+
+</form>
+</div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+  <span class="layui-btn layui-btn-xs" lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal" lay-event="reply">回复</span>
+</script>
+
+<script>
+function reply(){
+layer.open({type: 1, btn: false, area:["800px","500px"], content:$("#reply_con").html(), title:"回复"});
+}
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+
+       laydate.render({
+        range: true,
+        elem: '#create_time'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","ppp":"xxx","qqq":"xxxx","flag":1}],
+        cols: [
+         [{
+            field: 'id',
+            width: 100,
+            title: '商品编号',
+           // sort: true
+          }, {
+            field: 'aaa',
+            width: 150,
+            title: '商品名称'
+          }, {
+            field: 'bbb',
+            width: 120,
+            title: '商品SKU',
+           // sort: true
+          }, {
+            field: 'ccc',
+            width: 120,
+            title: '规格1'
+          }, {
+            field: 'ddd',
+            title: '规格2',
+            width: 120
+          }, {
+            field: 'eee',
+            width: 120,
+            title: '评价用户名',
+          //  sort: true
+          }, {
+            field: 'fff',
+            width: 120,
+            title: '评价用户ID',
+           // sort: true
+          },
+          {
+            field: 'ggg',
+           width: 150,
+            title: '评价内容',
+           // sort: true
+          }, 
+          {
+            field: 'hhh',
+            width: 150,
+            title: '匿名',
+           // sort: true
+          },
+          {
+            field: 'iii',
+            width: 150,
+            title: '总评分',
+           // sort: true
+          },  
+          {
+            field: 'jjj',
+            width: 150,
+            title: '物流服务',
+           // sort: true
+          },  
+          {
+            field: 'kkk',
+            width: 150,
+            title: '服务态度',
+           // sort: true
+          },  
+          {
+            field: 'ooo',
+            width: 100,
+            title: '回复',
+           // sort: true
+          },
+          {
+            field: 'ppp',
+            width: 150,
+            title: '评价时间',
+           // sort: true
+          },        
+          {title: '操作',width:160, align:'center',fixed:'right',templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+          //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'look'){ 
+       loadHtml('mainIframe','shop/evaluate_look.html');
+
+  } else if(layEvent === 'reply'){ 
+
+    reply();
+
+  } 
+});
+
+
+  });
+
+});
+
+
+
+
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="../../dist/layui/css/layui.css">
+  <link rel="stylesheet" href="../../dist/bootstrap4/css/bootstrap.css">
+  <link rel="stylesheet" href="../../dist/fonts/iconfont.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/newHome.css" />
+  <script src="../../js/jquery-2.1.1.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../dist/layui/layui.all.js"></script>
+  <script>
+    var layer = layui.layer;
+    var laydate = layui.laydate;
+    var table = layui.table;
+    var laytree = layui.tree;
+    var layTreeSelect = layui.treeSelect;
+    var layUpload = layui.upload;
+    var layElement = layui.element;
+    // }); 
+  </script>
+</head>
+
+<body class="bg_white">
+  <button class="btn btn-primary" onclick="openModal();">打开弹窗</button>
+  <div class="tableModal" id="testModalBox">
+    <div class="modalSearchBox">
+      <div class="text-right"><button class="btn btn-primary">搜索</button></div>
+      <div class="row m-t-15">
+        <div class="col-md-6 row">
+          <div class="control-label col-md-4 text-right">用户ID</div>
+          <div class="col-md-8">
+            <input class="form-control" placeholder="请输入用户名" />
+          </div>
+        </div>
+        <div class="col-md-6 row">
+          <div class="control-label col-md-4 text-right">用户类型</div>
+          <div class="col-md-8">
+            <input class="form-control" placeholder="请输入用户名" />
+          </div>
+        </div>
+      </div>
+      <div class="row m-t-15">
+        <div class="col-md-6 row">
+          <div class="control-label col-md-4 text-right">军衔</div>
+          <div class="col-md-8">
+            <select name="" id="" class="form-control">
+              <option>请选择</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tableBox">
+      <div id="tableModalTest"></div>
+    </div>
+    <div class="btnBox">
+      <button class="btn btn-primary" onclick="getItems();">确认</button>
+      <button class="btn btn-cancel" onclick="closeModal()">取消</button>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    table.render({
+      elem: '#tableModalTest',
+      height: 312,
+      url: '/demo/table/user/' //数据接口
+        ,
+      page: true //开启分页
+        ,
+      cols: [
+        [ //表头
+          {
+            type: 'checkbox'
+          },
+          {
+            field: 'id',
+            title: 'ID',
+            width: 80,
+            sort: true,
+            fixed: 'left'
+          }, {
+            field: 'username',
+            title: '用户名',
+            width: 80
+          }, {
+            field: 'sex',
+            title: '性别',
+            width: 80,
+            sort: true
+          }, {
+            field: 'city',
+            title: '城市',
+            width: 80
+          }, {
+            field: 'sign',
+            title: '签名',
+            width: 177
+          }, {
+            field: 'experience',
+            title: '积分',
+            width: 80,
+            sort: true
+          }, {
+            field: 'score',
+            title: '评分',
+            width: 80,
+            sort: true
+          }, {
+            field: 'classify',
+            title: '职业',
+            width: 80
+          }, {
+            field: 'wealth',
+            title: '财富',
+            width: 135,
+            sort: true
+          }
+        ]
+      ]
+    });
+    
+  });
+  function closeModal(){
+    layer.closeAll()
+  }
+  function getItems(){
+    var checkVO = table.checkStatus('tableModalTest');
+    // checkVO.data     //这边就是获取选中的数据
+    closeModal()
+  }
+  function openModal() {
+    layer.open({
+      type: 1,
+      closeBtn: 1, //不显示关闭按钮
+      anim: 2,
+      title: '弹窗',
+      area: ['800px', 'auto'],
+      shadeClose: true, //开启遮罩关闭
+      content: $("#testModalBox")
+    })
+  }
+</script>

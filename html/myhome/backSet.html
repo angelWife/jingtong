@@ -1,0 +1,310 @@
+<link rel="stylesheet" href="../css/home.css?e">
+<style>
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 0px;
+}
+.con .row div:last-of-type{
+  padding-right:0px; 
+}
+.con{
+  background-color: #EFF3F6;padding:0px;
+}
+.tab{
+  width:100%;height:190px;background-color:white;margin-top: 10px;padding-left:10px; 
+}
+.tab1{
+  width:100%;height:390px;background-color:white;margin-top: 10px;padding-left:10px;
+}
+.title{
+  height:30px;
+  width:100%;
+ 
+}
+.title span:nth-of-type(1){
+  font-weight: bold;
+  margin-left: 10px;
+  line-height: 30px;
+}
+.title span:nth-of-type(2),.title span:nth-of-type(3){
+  float: right;
+  display: inline;
+  padding:2px 6px;
+  border-radius: 10px;
+  border:1px solid red;
+  color: red;
+  margin-right: 10px;
+  font-size: 12px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+.radius{
+  border-radius: 4px;
+}
+
+
+.con .item{
+  line-height: 50px;
+}
+.con .item .col-md-2,.item .col-md-4{
+  font-size: 14px;
+  color: #757575;
+}
+.con .item .col-md-8,.item .col-md-6{
+  color: #333333;
+  font-size: 20px;
+}
+.con .item .col-md-8 span{
+  font-size: 14px;
+  color: #757575;
+  margin-left: 10px;
+}
+.ad{
+  width:100%;
+}
+.ad img{
+  width:100%;
+  height:100px;
+  margin-top: 10px;
+}
+.now-sale{
+  height:30px;
+  line-height: 20px;
+  width:100%;
+  margin-top: 10px;
+  background-color: white;
+  padding:5px;
+  color: #757575;
+}
+.now-sale span:nth-of-type(1){
+  font-weight: bold;
+  margin-left: 10px;
+  line-height: 20px;
+}
+.now-sale span:nth-of-type(3){
+  font-weight: bold;
+  margin-left: 10px;
+  line-height: 20px;
+  float: right;
+  display: inline;
+}
+.now-sale span:nth-of-type(2){
+  float: right;
+  display: inline;
+  padding:0px 6px;
+  border-radius: 10px;
+  border:1px solid red;
+  color: red;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.goods_list{
+ margin-top: 10px;
+ width:100%;
+}
+
+.layui-table {
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+    text-align: center;
+}
+.layui-table th{
+   text-align: center;
+}
+</style>
+
+
+<div  class="home">
+  <div class="shop_modal">
+    <div class="row align-items-center">
+      <div class="pic">
+        <img src="../images/p1.jpg" />
+      </div>
+      <div class="msg col">
+        <div class="name">
+          <span class="fs15 c666">无心痛苦</span>
+          <span class="mark gray">未认证</span>
+          <span class="mark green">已认证</span>
+          <span class="mark orange">上尉</span>
+          <span class="jingling">精灵1</span>
+        </div>
+        <div class="item">
+          <span>小铺ID：6556SSSS54</span>
+          <span>上次登录时间：2019-10-12 09:30</span>
+        </div>
+        <div class="item">
+          小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介小铺简介
+        </div>
+        <div class="edit">
+          <a href="javascript:;">修改</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="con" >
+    
+  <div class="row align-items-center" >
+     <div class="col-md-6 radius">
+       
+          <div class="tab" >
+            <div class="title" >
+              <span>人民币</span><span >提现</span><span id="upload" >上传背景图</span>
+            </div>
+            <div>
+                <div class="row item" >
+                  <div class="col-md-2" >余额</div>
+                  <div class="col-md-8" >￥232323243<span>(含保证金1000元)</span></div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-2" >可入账</div>
+                  <div class="col-md-8" >￥232万</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-2" >待提现</div>
+                  <div class="col-md-8" >￥2323</div>
+                </div>
+            </div>
+
+          </div>
+
+           <div class="tab" >
+            <div class="title" >
+              <span>星票</span><span >提现</span><span >充值</span>
+            </div>
+            <div>
+                <div class="row item" >
+                  <div class="col-md-2" >余额</div>
+                  <div class="col-md-8" >￥232323243<span>(含保证金1000元)</span></div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-2" >可入账</div>
+                  <div class="col-md-8" >￥232万</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-2" >待提现</div>
+                  <div class="col-md-8" >￥2323</div>
+                </div>
+            </div>
+
+          </div>
+     </div>
+
+     <div class="col-md-6  row align-items-center">
+       
+      <div class="col-md-6 radius">
+      
+
+      <div class="tab1" >
+            <div class="title" >
+              <span>人民币</span><span >充值</span>
+            </div>
+            <div>
+                <div class="row item" >
+                  <div class="col-md-4" >余额</div>
+                  <div class="col-md-6" >￥232323243</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-4" >待入账</div>
+                  <div class="col-md-6" >￥232万</div>
+                </div>   
+            </div>
+      </div>
+
+
+     </div>
+
+     <div class="col-md-6 radius"   >
+      
+       <div class="tab1"  >
+            <div class="title" >
+              <span>星空宝</span>
+            </div>
+            <div>
+                <div class="row item" >
+                  <div class="col-md-4" >累计获得</div>
+                  <div class="col-md-6" >￥232323243</div>
+                </div>
+                <div class="row item" >
+                  <div class="col-md-4" >当前可用</div>
+                  <div class="col-md-6" >￥232万</div>
+                </div>   
+            </div>
+      </div>
+
+     </div>
+     </div>
+
+  </div>
+
+  <div class="ad" ><img src="../images/car.png" /></div>
+
+  <div class="now-sale" >
+    <span>在售商品：23个/50个</span>
+    <span>升级</span>
+    <span>橱窗总数：50</span>
+  </div>
+
+
+  <div class="goods_list" > 
+    
+    <table class="layui-table">
+  <thead>
+    <tr>
+      <th>昵称</th>
+      <th>加入时间</th>
+      <th>签名</th>
+      <th>签名</th>
+      <th>签名</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>贤心</td>
+      <td>2016-11-29</td>
+      <td>人生就像</td>
+      <td>人生就像</td>
+      <td>人生就像</td>
+    </tr>
+    <tr>
+      <td>许闲心</td>
+      <td>2016-11-28</td>
+      <td>于千万人之中遇</td>
+      <td>人生就像</td>
+      <td>人生就像</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+
+  </div>
+
+
+
+<script>
+
+ $(function() {
+
+layui.use(['table'], function() {});
+
+$("#upload").click(function(){
+    layerOpen("myhome/upload_back_photo.html",0,"800px","550px");
+
+});
+
+
+});    
+
+
+
+</script>
+

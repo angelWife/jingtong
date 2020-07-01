@@ -1,0 +1,180 @@
+
+
+<div id="userList" class="listModal pdv1">
+  
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">广告位名称</div>
+        <div class="input col-md-8  ">
+          <input class="form-control" placeholder="" />
+        </div>
+      </div>
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">投放状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+            <option>AAAA</option>
+            <option>BBBB</option>
+          </select>
+        </div>
+      </div>
+
+     
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">审核状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+            <option>AAAA</option>
+            <option>BBBB</option>
+          </select>
+        </div>
+      </div>
+      
+    </div>
+
+     <div class="row" style="margin-top:20px;" >
+   
+     
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-4 text-right">投放时间</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="" id="timerStart" />
+        </div>
+      </div>
+
+
+
+       <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">所属频道</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+            <option>星乐小铺</option>
+            <option>星乐广场</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-1 row align-items-center"> </div>
+
+       <div class="col-md-3 row align-items-center text-right"> 
+            <button class="btn btn-primary ml10"  >
+                <span class="glyphicon glyphicon-search"></span> 搜索</button>
+       </div>
+
+    </div>
+
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+
+<script type="text/html" id="barDemo"  >
+
+
+  <span class="layui-btn layui-btn-xs" lay-event="look">预览</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal "  lay-event="edit">购买</span>
+ 
+
+
+</script>
+<script>
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        range: true,
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"name":"user-0","channel":"xxxx","platform":"xxxx","putTimes":"xxxxx","putstatus":255,"examineStatus":24,"adStatus":"文章","putTime":"2019-10-01","flag":1},{"id":10000,"name":"user-0","channel":"xxxx","platform":"xxxx","putTimes":"xxxxx","putstatus":255,"examineStatus":24,"adStatus":"帖子","putTime":"2019-10-01","flag":2}],
+        cols: [
+          [{
+            field: 'id',
+            title: '广告位ID',
+            sort: true
+          }, {
+            field: 'name',
+            title: '广告名称'
+          }, {
+            field: 'channel',
+            title: '所属频道',
+            sort: true
+          }, {
+            field: 'platform',
+            title: '所属平台'
+          }, {
+            field: 'putTimes',
+            title: '投放时段',
+          }, {
+            field: 'putstatus',
+            title: '投放状态',
+            sort: true
+          }, {
+            field: 'examineStatus',
+            title: '审核状态',
+            sort: true
+          }, {
+            field: 'adStatus',
+            title: '广告上传'
+          }, {
+            field: 'putTime',
+            title: '投放时间',
+            sort: true
+          },
+          {title: '操作',width:200, align:'center', templet: '#barDemo'}
+          ]
+        ],
+        page: true
+      });
+
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+  if(layEvent === 'look'){ //查看
+
+     loadHtml('mainIframe','marketing/buy_ad.html');
+
+  } else if(layEvent === 'edit'){ //编辑
+     loadHtml('mainIframe','marketing/buy_ad.html');
+  }
+
+});
+
+      
+});
+
+$("#add_post").click(function(){
+   loadHtml('mainIframe','marketing/post_add.html');
+});
+
+$("#add_article").click(function(){
+   loadHtml('mainIframe','marketing/article_add.html');
+});
+
+});
+
+
+
+
+</script>

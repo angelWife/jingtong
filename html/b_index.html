@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="../dist/layui/css/layui.css">
+  <link rel="stylesheet" href="../dist/bootstrap4/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css?kssds">
+  <link rel="stylesheet" href="../css/style.css?fddss">
+  <link rel="stylesheet" href="../dist/fonts/iconfont.css">
+  <script src="../js/jquery-2.1.1.js"></script>
+  <script src="../dist/layui/layui.js"></script>
+  <script src="../js/common.js?8"></script>
+</head>
+
+<body style="overflow: hidden;" >
+  <div class="container">
+    <div class="head row">
+      <div class="logo"  >
+        <img src="../images/icon-logo.png"   />
+      </div>
+
+      <div class="headBar" id="head_menu" ></div>
+
+      <div class="col-md">
+        <ul class="headMenu" id="headNav">
+
+          <li>
+            <a href="javascript:;" title="联系客服"  >
+              <div class="user-icon row align-items-center" >
+                <div class="col-md-6 col-xs-6"  >
+                  <div><img src="../images/p1.jpg" /></div>
+                </div>
+                <div class="col-md-6 col-xs-6 username" >
+                  <div class="user-text" >杨华</div>
+                  <div class="user-text" >少校</div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="javascript:;" title="联系客服" >
+              <div class="wrap-icon" >
+                <div class="service-icon" ></div>
+                <div class="icon-text" >联系客服</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;" title="退出" >
+              <div class="wrap-icon" >
+                <div class="exit-icon" ></div>
+                <div class="icon-text" >退出</div>
+              </div>
+            </a>
+          </li>
+          <!-- <li class="more">
+            <a href="javascript:;" class="glyphicon glyphicon-triangle-bottom">亡命天涯</a>
+            <div class="childNav">
+              <a>修改资料</a>
+              <a>个人信息</a>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="body row">
+      <div class="m_left" id="body_left"  style="overflow: auto;" >
+       
+        <div class="menuBox" id="menuBox">
+           <!-- <dl class="menuItem">
+            <dt>
+              <a class="glyphicon glyphicon-home">
+                <text  id="navHome" >我的主页</text>
+                 <i class="glyphicon glyphicon-triangle-bottom"></i>
+              </a>
+            </dt>
+             <dd>
+              <a href="javascript:void(0);" data-src="myhome/set.html" data-name="账户设置">账户设置</a>
+              <a href="javascript:void(0);" data-src="myhome/backSet.html" data-name="背景图设置">背景图设置</a>
+              <a href="javascript:void(0);" data-src="myhome/dataChats.html?ss" data-name="统计面板">统计面板</a>
+
+              <a href="javascript:void(0);" data-src="layerui_base_form.html?ss" data-name="layui基本表单例子">layui基本表单例子</a>
+               <a href="javascript:void(0);" data-src="bootstrap_base_form.html?ss" data-name="bootstrap基本表单例子">bootstrap基本表单例子</a>
+            </dd>
+          </dl>  -->
+        </div>
+      </div>
+      <div class="m_right col" id="body_right"  >
+        <div class="treeBox bg_white"  >
+          <div  class="home"  id="menuClick"  >《</div>
+          <div class="treeList">
+            <div class="treeMain" id="headTree"  data-url="home.html" >
+            </div>
+            <!-- <div  class="home1"  id="menuClick1" > 》</div>  -->
+          </div>
+          
+          <div class="closeAll glyphicon glyphicon-off"></div>
+        </div>
+        <div class="main">
+          <div  class="pd15"> 
+            <div id="mainIframe" class="bg_white"  ></div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+var menus=[
+{"id":"1","name":"帖子管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+          {"name":"帖子管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+      
+            {"name":"帖子审核管理","url":"marketing/post_list.html"},
+            {"name":"帖子评论管理","url":"marketing/private_letter_list.html"},
+            {"name":"帖子关注","url":"marketing/private_letter_list.html"},
+          
+          ]}
+
+          ]
+    },
+    {"id":"2","name":"用户管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+          {"name":"用户管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+            {"name":"用户管理","url":"marketing/funs_list.html"},
+            {"name":"星能变动管理","url":"marketing/private_letter_list.html"},
+            {"name":"星票变动管理","url":"marketing/post_list.html"},
+            {"name":"星空宝变动管理","url":"marketing/ad_manage_list.html"},
+            {"name":"仓库变动管理","url":"marketing/ad_list.html"},
+            {"name":"人民币变动管理","url":"marketing/kefu_list.html"},
+            {"name":"私信管理","url":"marketing/chat.html"},
+          ]}
+
+          ]
+    },
+    {"id":"3","name":"客服管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+          {"name":"客服管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+            {"name":"意见管理","url":"marketing/funs_list.html"},
+            {"name":"举报管理","url":"marketing/private_letter_list.html"},
+            {"name":"在线咨询","url":"marketing/post_list.html"},
+            {"name":"咨询管理","url":"marketing/ad_manage_list.html"},
+            {"name":"供应商咨询管理","url":"marketing/ad_list.html"}
+          ]}
+
+          ]
+    },
+
+    {"id":"4","name":"商城管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+          {"name":"商城管理","icon":"layui-icon layui-icon-fire","img_icon":"/images/yingxiao@2x.png","children":[
+            {"name":"商品类别管理","url":"marketing/funs_list.html"},
+            {"name":"商品管理","url":"marketing/private_letter_list.html"},
+            {"name":"优惠券管理","url":"marketing/post_list.html"},
+            {"name":"订单管理","url":"marketing/ad_manage_list.html"},
+            {"name":"退换货管理","url":"marketing/ad_list.html"},
+            {"name":"广告订单管理","url":"marketing/kefu_list.html"},
+            {"name":"商品评价管理","url":"marketing/chat.html"},
+            {"name":"宝箱管理","url":"marketing/knowledge_list.html"},
+            {"name":"虚拟物品管理","url":"marketing/news_list.html"},
+            {"name":"商品销售管理","url":"marketing/news_list.html"},
+            {"name":"运费模板管理","url":"marketing/news_list.html"},
+            {"name":"品牌管理","url":"marketing/news_list.html"},
+          ]}
+
+          ]
+    },
+    
+     {"id":"5","name":"财务管理","icon":"layui-icon layui-icon-rmb","children":[
+          {"name":"财务管理","icon":"layui-icon layui-icon-rmb","children":[
+            {"name":"保证金管理","url":"finance/rebate_list.html"},
+            {"name":"保证金退款管理","url":"finance/reconciliation_list.html"},
+            {"name":"星票兑奖管理","url":"finance/account_rmb.html"},
+            {"name":"人民币提现管理","url":"finance/account_xingpiao.html"},
+            {"name":"返利管理","url":"finance/qita_pay.html"},
+            {"name":"对账单管理","url":"finance/qita_pay.html"},
+            {"name":"其他支付","url":"finance/qita_pay.html"},
+          ]}
+          ]
+    },
+    {"id":"6","name":"运营管理","icon":"layui-icon layui-icon-tabs","children":[
+          {"name":"运营管理","icon":"layui-icon layui-icon-tabs","children":[
+            {"name":"消息管理","url":"marketing/news_list.html"},
+            {"name":"精灵管理","url":"marketing/news_list.html"},
+            {"name":"任务管理","url":"marketing/news_list.html"},
+            {"name":"活动管理","url":"marketing/news_list.html"},
+            {"name":"广告管理","url":"marketing/ad_manage_list.html"},
+            {"name":"广告投放管理","url":"marketing/ad_manage_list.html"},
+            {"name":"主题管理","url":"marketing/news_list.html"},
+            {"name":"知识库管理","url":"marketing/knowledge_list.html"},
+            {"name":"晋升管理","url":"marketing/news_list.html"},
+            {"name":"充值套餐管理","url":"marketing/news_list.html"},
+            {"name":"公告管理","url":"marketing/news_list.html"}
+           
+            
+          ]}
+          ]
+    },
+     {"id":"7","name":"统计","icon":"layui-icon layui-icon-template","children":[
+          {"name":"统计","icon":"layui-icon layui-icon-template","children":[
+            {"name":"用户统计","url":"statistics/evaluation_list.html"},
+            {"name":"帖子统计","url":"statistics/evaluation_list.html"},
+            {"name":"商品统计","url":"statistics/evaluation_list.html"},
+            {"name":"财务收入统计","url":"statistics/evaluation_list.html"},
+            {"name":"广告统计","url":"statistics/evaluation_list.html"},
+            {"name":"活动统计","url":"statistics/evaluation_list.html"},
+            {"name":"订单统计","url":"statistics/evaluation_list.html"},
+            {"name":"运营统计","url":"statistics/evaluation_list.html"},
+            {"name":"财务支出统计","url":"statistics/evaluation_list.html"},
+          ]}
+          ]
+    },
+];
+
+
+init_menu();
+
+
+$(function(){
+  if($("#head_menu").children("a").size()>5){
+$(".logo").attr("style","min-width: 80px;width:150px;overflow: hidden;");
+  }
+  
+
+  $(".left_m dt a").eq(0).click();
+  $(".left_m dd a").eq(0).click();
+
+})
+
+//loadHtml('mainIframe','marketing/post_list.html');
+
+</script>
+
+</html>

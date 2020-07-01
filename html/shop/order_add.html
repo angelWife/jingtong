@@ -1,0 +1,332 @@
+
+
+ <div class="addFormModal form-horizontal bg_white">
+    <form  class="form" >
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">订单编号</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">用户昵称</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>拼购</div>
+      <div class="col-md-4">
+         <select class="form-control"  readonly="" >
+            <option>是</option>
+            <option>否</option>
+          </select>
+      </div>
+    </div>
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>用户ID</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>手机号码</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">订单金额（元）</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">运费</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+
+      <div class="control-label col-md-2 text-right">商品数量</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">收货人姓名</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+    </div>
+
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>收货人电话</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>减免金额（元）</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">精灵减免（元）</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+    <div class="control-label col-md-2 text-right required"><span class="red">*</span>实际支付（元）</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+    </div>
+
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">实际支付（星票）</div>
+      <div class="col-md-4">
+        <input class="form-control" value="xxxxx"  />
+      </div>
+ 
+   
+
+    </div>
+
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>收货人地址</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+      <div class="col-md-4">
+       
+      </div>
+
+      <div class="col-md-2">
+  
+          <span class="btn btn-primary"  id="add" > <span class="layui-icon layui-icon-add-1"></span> 新增</span>
+       
+      </div>
+
+    </div>
+
+
+
+
+
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+
+
+
+
+
+<div class="mt60" >
+  <div class="row align-items-center"  >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w120" >保存</button>
+      </div>
+
+       <div class="col-md-2">
+        <button class="btn btn-primary w120" >返回</button>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+    </div>
+</div>
+
+</form>
+</div>
+<script type="text/html" id="barDemo"  >
+
+  <a class="layui-btn layui-btn-xs layui-btn-normal "  style="color:white;" lay-event="del">删除</a>
+
+
+</script>
+<script>
+
+
+  $(function() {
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        range: true,
+        elem: '#finish_time'
+      });
+
+       laydate.render({
+        range: true,
+        elem: '#create_time'
+      });
+
+  var AddData = [{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2}];
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:AddData,
+        cols: [
+          [{
+            field: 'id',
+            width: 120,
+            title: '商品SKU',
+             edit: 'text',
+            //sort: true
+          }, {
+            field: 'aaa',
+            width: 120,
+            title: '商品名称',
+            edit: 'text',
+          }, {
+            field: 'bbb',
+            width: 120,
+            title: '商品编号',
+            edit: 'text',
+           // sort: true
+          }, {
+            field: 'ccc',
+            width: 80,
+            title: '品牌',
+            edit: 'text',
+          }, {
+            field: 'ddd',
+            title: '规格1',
+            width: 80,
+            edit: 'text',
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '规格2',
+            edit: 'text',
+          }, {
+            field: 'fff',
+            width: 120,
+            title: '分类路径',
+         //   sort: true
+         edit: 'text',
+          },
+          {
+            field: 'ggg',
+           width: 80,
+            title: '原价（元）',
+            //sort: true
+            edit: 'text',
+          }, 
+          {
+            field: 'hhh',
+           width: 150,
+            title: '销售价（元）',
+            edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'iii',
+            width: 150,
+            title: '重量（克）',
+             edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'jjj',
+           width: 80,
+            title: '运费',
+             edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'kkk',
+            width: 120,
+            title: '库存',
+             edit: 'text',
+          //  sort: true
+          },
+          {title: '操作',width:120, align:'center', templet: '#barDemo'}
+          ]
+        ],
+        page: false
+      });
+
+          //监听工具条 
+table.on('tool(test)', function(obj){ 
+  var data = obj.data; 
+  var layEvent = obj.event; 
+  var tr = obj.tr; 
+
+
+if(layEvent === 'del'){ //删除
+    layer.confirm('真的删除行么', function(index){
+      obj.del(); 
+      layer.close(index);
+      //向服务端发送删除指令
+    });
+  } else if(layEvent === 'edit'){ //编辑
+    //do something
+      alert(data.id);
+
+  } 
+
+
+});
+
+
+
+  $("#add").click(function(){
+        
+        AddData.push({"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2});
+
+        table.reload('userTable',{
+              data : AddData
+          });
+
+    });
+
+
+  //监听单元格编辑
+  table.on('edit(test)', function(obj){
+    var value = obj.value //得到修改后的值
+    ,data = obj.data //得到所在行所有键值
+    ,field = obj.field; //得到字段
+    layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+  });
+
+
+
+
+  });
+
+ });
+
+  
+
+
+
+</script>

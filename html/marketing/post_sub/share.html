@@ -1,0 +1,107 @@
+
+
+<div id="userList" class="listModal">
+  
+
+  <div class="tableBox">
+     <!-- <div class="row fc" >
+      <div class="col-md-3 row align-items-center">累计消费次数：2222</div>
+      <div class="col-md-4 row align-items-center">累计消费金额（元）：2344</div>
+      <div class="col-md-4 row align-items-center">累计消费金额（星票）：2344</div>
+    </div> -->
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+<div class="mt60" >
+<div class="row align-items-center"  >
+      <div class="control-label col-md-3 text-right"></div>
+       <div class="col-md-6 text-center" id="btns" >
+
+        <span class="btn btn-primary w120 "   data-src="marketing/post_sub/post_comment.html" >上一页</span>
+
+        <span class="btn btn-primary w120 ml10"  data-src="marketing/post_sub/reward.html" >下一页</span>
+
+        <span class="btn btn-primary w120 ml10" data-src="marketing/post_sub/post_comment.html" >返回</span>
+
+      </div>
+      <div class="col-md-3"></div>
+  </div>
+</div>
+
+
+
+
+</form>
+</div>
+
+
+<script>
+
+
+  $(function() {
+
+    $("#btns span").click(function(){
+        var url = $(this).data("src");
+        $("#homeNav [data-src]").removeClass("active");
+        $("#homeNav [data-src='"+url+"']").eq(0).addClass("active");
+        loadHtml('homeIframe',url);
+    });
+
+
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+          [{
+            field: 'id',
+          //  width: 80,
+            title: '帖子ID',
+            sort: true
+          }, {
+            field: 'aaa',
+           // width: 80,
+            title: '分享至'
+          }, {
+            field: 'bbb',
+          //  width: 80,
+            title: '用户ID',
+            sort: true
+          }, {
+            field: 'ccc',
+           // width: 80,
+            title: '用户昵称'
+          }, {
+            field: 'ddd',
+            title: '分享渠道',
+           // width: 80
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '分享时间',
+           // sort: true
+          }
+      
+          ]
+        ],
+        page: true
+      });
+
+
+
+
+});
+
+});
+
+
+
+
+</script>

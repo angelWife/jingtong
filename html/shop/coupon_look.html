@@ -1,0 +1,156 @@
+
+
+ <div class="addFormModal form-horizontal bg_white">
+   <form  class="form" >
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>类型</div>
+      <div class="col-md-4">
+          <select class="form-control" readonly=""  >
+            <option>请选择</option>
+            <option>满减券</option>
+            <option>折扣券</option>
+          </select>
+      </div>
+
+    </div>
+
+
+
+   <div class="row align-items-center">
+
+       <div class="control-label col-md-2 text-right required"><span class="red">*</span>优惠券名称</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>作用范围</div>
+      <div class="col-md-4">
+        <select class="form-control" readonly=""  >
+            <option>请选择</option>
+            <option>本店通用</option>
+            <option>指定商品</option>
+          </select>
+      </div>
+ 
+    </div>
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">满足金额</div>
+      <div class="col-md-4">
+          <input class="form-control" readonly=""  value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>折扣值</div>
+      <div class="col-md-4">
+         <input class="form-control"  readonly="" value="xxxxx"  />
+         <span class="fc_red" >折扣值是减去的金额值</span>
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>折扣比例</div>
+      <div class="col-md-3">
+        <input class="form-control" readonly=""  value="xxxxx"  />
+        <!-- <span class="fc_red" >例如：9折</span> -->
+      </div>
+       <div class="col-md-1">
+        折
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>开始时间</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="2019-12-01" id="start"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>到期时间</div>
+      <div class="col-md-4">
+        <input class="form-control"  readonly="" value="2019-12-01" id="end"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">备注</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  readonly="" placeholder="请输入备注"  ></textarea>
+      </div>
+ 
+    </div>
+
+<div class="mt60" >
+  <div class="row align-items-center" >
+      <div class="control-label col-md-2 text-right"></div>
+
+       <div class="col-md-2">
+        <span class="btn btn-primary w120"  >查看</span>
+      </div>
+
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  id="start_use" >启用/停用</span>
+      </div>
+
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  >编辑</span>
+      </div>
+
+       <div class="col-md-2">
+        <span class="btn btn-primary w120"  >返回</span>
+      </div>
+    
+      <div class="col-md-2">
+      </div>
+  </div>
+</div>
+
+</form>
+</div>
+
+<script>
+  
+
+  $(function() {
+
+    layui.use(['laydate'], function() {
+      var laydate = layui.laydate;
+       laydate.render({
+        elem: '#start'
+      });
+
+       laydate.render({
+        elem: '#end'
+      });
+
+
+  });
+
+
+$("#start_use").click(function(){
+
+      layer.confirm('请确认是否启用“优惠券名”，启用后将不能再编辑信息！', {
+          btn: ['确定启用','取消'] //按钮
+        }, function(){
+                  
+        }, function(){
+ 
+        });
+
+    });
+
+ });
+
+
+
+</script>

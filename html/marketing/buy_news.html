@@ -1,0 +1,242 @@
+<link rel="stylesheet" href="../css/home.css">
+<style>
+.con{
+width:100%;
+background-color: white;
+padding-bottom: 30px;
+padding-left:20px; 
+line-height: 30px;
+}
+
+.c1 > div {
+  padding:0px; 
+  width:300px;
+  height:140px;
+  float: left;
+  margin-left:30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  position: relative; 
+  border:1px solid #999;
+  line-height: 140px;
+  font-size:30px ;
+  color: #757575;
+  text-align: center;
+  cursor: pointer;
+}
+
+.time > div,.pay > div{
+  padding:0px; 
+  width:300px;
+  height:140px;
+  float: left;
+  margin-left:30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  position: relative; 
+  border:1px solid #999;
+  color: #757575;
+  text-align: center;
+  cursor: pointer;
+}
+
+.c1 > div.active{
+  border:2px solid #4C8FF7;
+}
+.time > div.active{
+  border:2px solid red;
+}
+.clear{
+  clear:both;
+}
+.num{
+  font-size: 18px;
+  color: #b40000;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.tehui{
+width:75px;
+height:27px;
+background:rgba(222,65,65,1);
+opacity:1;
+border-radius:0px 10px 0px 10px;
+position: absolute;
+top:0px;
+right:0px;
+z-index:100;
+color: white;
+}
+
+.z1{
+  line-height:30px;width:70px;font-size:20px;font-weight:bold;text-align:center;
+}
+.z2{
+  height:100%;border-left:1px solid #999;
+}
+.z3{
+  height:70px;line-height:90px;
+}
+.z4{
+  font-size:34px;font-weight:bold;
+}
+.z5{
+  width:60px;text-align:center;
+}
+.z6{
+  width:80px;text-align:center;
+}
+.z6 img{
+  width:60px;
+  height:auto;
+}
+.z7{
+  position:relative;top:-30px;
+}
+.z8{
+  display:inline-block;position:relative;top:0px;
+}
+.yuan{
+  display: inline-block;
+  width:20px;
+  height:20px;
+  border-radius: 100%;
+  border:1px solid #999;
+  position: relative;
+  cursor: pointer;
+}
+.yuan.active:after{
+  content: "";
+  width:14px;
+  height:14px;
+  background-color: #0099ff;
+  position: absolute;
+  left:2px;
+  top:2px;
+  z-index:100; 
+  border-radius: 100%;
+}
+.fang{
+  display: inline-block;
+  width:20px;
+  height:20px;
+  border-radius: 4px;
+  border:1px solid #999;
+  position: relative;
+  cursor: pointer;
+  top:5px;
+}
+.fang.active:after{
+  content: "";
+  width:14px;
+  height:14px;
+  background-color: #0099ff;
+  position: absolute;
+  left:2px;
+  top:2px;
+  z-index:100; 
+  border-radius: 3px;
+}
+</style>
+
+  <div class="fl con" >
+    
+    <div class="c_757575" >当前剩余发送  <span class="num" >10</span>条</div>
+
+    <div class="clear c_757575 "  >增加额度:</div>
+    <div class="time clear" >
+      <div class="flex flex-center-v relative active" >
+          <div class="flex_1 z2" >
+            <div class="c_757575 z3" ><span class="z4" >5条消息</span></div>
+            <div class="lh20 red" >售价￥10</div>
+          </div>
+          <div class="tehui" >特惠</div>
+      </div>
+
+      <div class="flex flex-center-v relative" >
+          <div class="flex_1 z2" >
+            <div class="c_757575 z3" ><span class="z4" >25条消息</span></div>
+            <div class="lh20 red" >售价￥20</div>
+          </div>
+      </div>
+   
+    </div>
+    <div class="clear c_757575 mt20" ><br/>支付:</div>
+    <div class="pay clear" >
+      
+      <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan active" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/zfb.png" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >支付宝</div>
+      </div>
+
+      <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/wx.jpg" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >微信支付</div>
+      </div>
+
+       <div class="flex flex-center-v relative" >
+          <div class="z5" >
+            <span class="yuan" ></span>
+          </div>
+          <div class="z6" >
+            <img src="../images/union.png" />
+          </div>
+          <div class="flex_1 fs30 c_757575 text-left" >银联支付</div>
+      </div>
+
+
+    </div>
+
+    <div class="clear c_757575" ><br/>
+     <span class="fang active" ></span> <span>星票支付，当前余额9000，本单可使用180，抵扣18</span><br/>
+     <span class="fang" ></span> <span>余额支付，当前余额9000</span><br/>
+     <br/>
+    </div>
+
+    <div class="clear" >
+        还需支付金额<span class="red fs30" > 99 </span>元
+    </div>
+
+    <div><br/>
+      <span class="btn btn-primary w120" id="pay_do" >去支付</span>
+    </div>
+
+    
+  </div>
+
+
+
+
+
+
+<script>
+
+ $(function() {
+
+layui.use(['table'], function() {});
+
+$("#pay_do").click(function(){
+
+  layerOpen("myhome/pay.html",0,"800px","600px");
+
+});
+
+
+
+});    
+
+
+
+</script>
+

@@ -1,0 +1,135 @@
+
+
+ <div class="addFormModal form-horizontal bg_white"  style="" >
+  <form  class="form" >
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly=""  value=""  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>数据类型</div>
+      <div class="col-md-4">
+        <select class="form-control"  readonly="" >
+            <option>帖子</option>
+          </select>
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>发布内容</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control" readonly=""  placeholder=""  ></textarea>
+      </div>
+    </div>
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>添加链接</div>
+      <div class="col-md-8">
+        <input class="form-control" readonly=""  value=""  />
+      </div>
+      <div class="col-md-2">
+        <span class="btn btn-primary" >添加链接</span>
+      </div>
+ 
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">主图</div>
+      <div class="col-md-10 goods_img">
+            <img  src="../../images/p1.jpg" />
+            <img  src="../../images/p1.jpg" />
+            <img  src="../../images/jia.png"  style="border:4px solid #a0a0a0;" id="upLoadPic" />
+            <p id="demoText"></p>
+      </div>
+ 
+    </div>
+  
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">审核状态</div>
+      <div class="col-md-4">
+          <select class="form-control" readonly=""  >
+            <option>请选择</option>
+          </select>
+      </div>
+  </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>审核意见</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  readonly=""  placeholder=""   ></textarea>
+      </div>
+    </div>
+  
+  <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">发布时间</div>
+      <div class="col-md-4">
+         2019-12-01 12:12:00
+      </div>
+  </div>
+
+  <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">最新审核时间</div>
+      <div class="col-md-4">
+         2019-12-01 12:12:00
+      </div>
+  </div>
+
+
+<div class="mt60" >
+  <div class="row align-items-center" >
+       <div class="control-label col-md-2 text-right"></div>
+
+      <div class="col-md-8 text-center">
+        <span class="btn btn-primary w120 " >保存</span>
+        <span class="btn btn-primary w150 ml15" >保存并继续写帖子</span>
+        <span class="btn btn-primary w120 ml15" >返回</span>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+</div>
+
+</form>
+</div>
+
+<script>
+  $(function() {
+    layui.use(['upload'], function() {
+     
+      var upload = layui.upload;
+
+      //普通图片上传
+      var uploadInst = upload.render({
+        elem: '#upLoadPic',
+        url: '/upload/',
+        before: function(obj) {
+          //预读本地文件示例，不支持ie8
+          obj.preview(function(index, file, result) {
+            $('#picBox').attr('src', result); //图片链接（base64）
+          });
+        },
+        done: function(res) {
+          //如果上传失败
+          if (res.code > 0) {
+            return layer.msg('上传失败');
+          }
+          //上传成功
+        },
+        error: function() {
+          //演示失败状态，并实现重传
+          var demoText = $('#demoText');
+          demoText.html(
+            '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+          );
+          demoText.find('.demo-reload').on('click', function() {
+            uploadInst.upload();
+          });
+        }
+      });
+    });
+  });
+</script>

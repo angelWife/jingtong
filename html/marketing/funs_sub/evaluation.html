@@ -1,0 +1,119 @@
+
+
+<div id="userList" class="listModal">
+  
+
+  <div class="tableBox">
+     <div class="row fc" >
+      <div class="col-md-3 row align-items-center">累计评论次数：2222</div>
+     
+    </div>
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+</div>
+
+<div class="mt60" >
+<div class="row align-items-center"  >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  id="reward" >打赏</span>
+      </div>
+
+       <div class="col-md-2">
+        <span class="btn btn-primary w120" >返回</span>
+      </div>
+    
+      <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+</form>
+</div>
+
+
+<script>
+
+
+  $(function() {
+
+
+    $("#reward").click(function(){
+      layerOpen("reward.html");
+    });
+
+
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:[{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":3}],
+        cols: [
+          [{
+            field: 'id',
+          //  width: 80,
+            title: '订单编号',
+            sort: true
+          }, {
+            field: 'aaa',
+           // width: 80,
+            title: '业务ID'
+          }, {
+            field: 'bbb',
+          //  width: 80,
+            title: '业务类型',
+            sort: true
+          }, {
+            field: 'ccc',
+           // width: 80,
+            title: '发生时间'
+          }, {
+            field: 'ddd',
+            title: '商品名',
+           // width: 80
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '商品编号',
+           // sort: true
+          }, {
+            field: 'fff',
+           // width: 80,
+            title: '评价内容',
+           // sort: true
+          }, {
+            field: 'ggg',
+           // width: 80,
+            title: '总评分（分）'
+          }, {
+            field: 'hhh',
+            title: '物流服务（分）',
+          }, {
+            field: 'iii',
+            title: '服务态度（分）',
+          }
+      
+          ]
+        ],
+        page: true
+      });
+
+
+
+
+});
+
+});
+
+
+
+
+</script>

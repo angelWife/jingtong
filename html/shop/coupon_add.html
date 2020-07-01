@@ -1,0 +1,171 @@
+
+
+ <div class="addFormModal form-horizontal bg_white">
+   <form  class="form" >
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">ID</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>类型</div>
+      <div class="col-md-4">
+          <select class="form-control"   >
+            <option>请选择</option>
+            <option>满减券</option>
+            <option>折扣券</option>
+          </select>
+      </div>
+
+    </div>
+
+
+
+   <div class="row align-items-center">
+
+       <div class="control-label col-md-2 text-right required"><span class="red">*</span>优惠券名称</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>作用范围</div>
+      <div class="col-md-4">
+        <select class="form-control"   >
+            <option>请选择</option>
+            <option>本店通用</option>
+            <option>指定商品</option>
+          </select>
+      </div>
+ 
+    </div>
+
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">满足金额</div>
+      <div class="col-md-4">
+          <input class="form-control"  value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>折扣值</div>
+      <div class="col-md-4">
+         <input class="form-control"  value="xxxxx"  />
+         <span class="fc_red" >折扣值是减去的金额值</span>
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>折扣比例</div>
+      <div class="col-md-3">
+        <input class="form-control"  value="xxxxx"  />
+        <!-- <span class="fc_red" >例如：9折</span> -->
+      </div>
+       <div class="col-md-1">
+        折
+      </div>
+
+    </div>
+
+     <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>指定商品</div>
+      <div class="col-md-2">
+        <input class="form-control"  readonly="" value="xxxxx"  />
+      </div>
+       <div class="col-md-2">
+        <input class="form-control"  readonly="" value="xxxxx"  />
+      </div>
+       <div class="col-md-2">
+        <input class="form-control"  readonly="" value="xxxxx"  />
+      </div>
+       <div class="col-md-1">
+          <span class="btn btn-primary " id="select_goods" >选择商品</span>
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>开始时间</div>
+      <div class="col-md-4">
+        <input class="form-control" value="2019-12-01" id="start"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>到期时间</div>
+      <div class="col-md-4">
+        <input class="form-control"  value="2019-12-01" id="end"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">备注</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  placeholder="请输入备注"  ></textarea>
+      </div>
+ 
+    </div>
+
+<div class="mt60" >
+  <div class="row align-items-center " >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  >保存</span>
+      </div>
+
+       <div class="col-md-2">
+        <span class="btn btn-primary w120" >返回</span>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+  </div>
+</div>
+
+</form>
+</div>
+
+<script>
+  
+
+  $(function() {
+
+    layui.use(['laydate'], function() {
+      var laydate = layui.laydate;
+       laydate.render({
+        elem: '#start'
+      });
+
+       laydate.render({
+        elem: '#end'
+      });
+
+  });
+
+    $("#select_goods").click(function(){
+
+      layerOpen("shop/coupon_add_goods.html","选择商品","900px","600px",function(){
+
+          $(".tk_sure").on("click",function(){
+              alert("获取到数据，请console.log() 查看 ");
+              var datas = layui.table.checkStatus('select_goods_list').data;
+              console.log(datas);
+              layer.closeAll();
+      
+          });
+
+        });
+
+  
+
+    });
+
+
+ });
+
+
+
+</script>

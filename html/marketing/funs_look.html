@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="../css/home.css?sss">
+<div id="home" class="home pd15">
+  <div class="home_head row">
+    <div class="col-md-12">
+      <ul id="homeNav">
+        <li><a href="javascript:;" data-src="marketing/funs_sub/base_info.html" class="active">基本信息</a></li>
+        <li><a href="javascript:;" data-src="marketing/funs_sub/reward.html" >打赏</a></li>
+        <li><a href="javascript:;" data-src="marketing/funs_sub/total_consum.html" >累计消费</a></li>
+        <li><a href="javascript:;" data-src="marketing/funs_sub/thumbs.html" >点赞</a></li>
+        <li><a href="javascript:;" data-src="marketing/funs_sub/evaluation.html" >商品评价</a></li>
+        <li><a href="javascript:;" data-src="marketing/funs_sub/post_comment.html" >帖子评论</a></li>
+      </ul>
+    </div>
+  
+  </div>
+  <div class="shop_modal">
+  <div id="homeIframe"></div>
+</div>
+<script>
+$(function(){
+  loadHtml('homeIframe',"marketing/funs_sub/base_info.html");
+  $("#homeNav li").off('click').on('click',function(){
+    var src= $(this).children('a').data('src');
+    loadHtml('homeIframe',src);
+    $(this).children('a').addClass('active');
+    $(this).siblings().children('a').removeClass('active');
+  });
+});
+</script>

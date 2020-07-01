@@ -1,0 +1,318 @@
+
+
+ <div class="addFormModal form-horizontal bg_white">
+  <form  class="form" >
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">订单编号</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>下单渠道</div>
+      <div class="col-md-4">
+         <select class="form-control"  readonly="" >
+            <option>APP</option>
+          </select>
+      </div>
+
+    </div>
+
+
+      <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>用户名</div>
+      <div class="col-md-3">
+         <input type="search" name="keyword" autocomplete="off" class="layui-input" value="xxxxx"  />
+         <i class="layui-icon layui-icon-search my-icon-search" ></i>
+      </div>
+       <div class="col-md-1">
+         <span class="btn btn-primary" id="reward" >打赏</span>
+      </div>
+ 
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>拼购</div>
+      <div class="col-md-4">
+         <select class="form-control"  readonly="" >
+            <option>是</option>
+          </select>
+      </div> 
+
+    </div>
+
+
+
+    <div class="row align-items-center">
+     <div class="control-label col-md-2 text-right required"><span class="red">*</span>手机号码</div>
+      <div class="col-md-4">
+         <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right required"><span class="red">*</span>申请事项</div>
+      <div class="col-md-4">
+         <select class="form-control"  readonly="" >
+            <option>退货</option>
+          </select>
+      </div>
+
+    </div>   
+
+
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">退货原因</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">退星票</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+    </div>
+
+
+    <div class="row align-items-center">
+
+      <div class="control-label col-md-2 text-right">退商品数量</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">订单使用优惠券</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">订单优惠金额</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right">上传附件</div>
+     
+      <div class="col-md-4">
+        附件名称
+      </div>
+
+
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">原因说明</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  readonly=""    ></textarea>
+      </div>
+    </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">状态</div>
+      <div class="col-md-4">
+          <select class="form-control"  readonly="" >
+            <option>请选择</option>
+          </select>
+      </div>
+ 
+      <div class="control-label col-md-2 text-right">拒绝原因</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">下单时间</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+
+      <div class="control-label col-md-2 text-right">申请时间</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+    
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">退换货完成时间</div>
+      <div class="col-md-4">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+
+
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable"  lay-filter="test" ></table>
+  </div>
+
+
+<div class="mt60" >
+  <div class="row align-items-center"  >
+       <div class="control-label col-md-4 text-right"></div>
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  id="edit" >编辑</span>
+      </div>
+
+      <div class="col-md-2">
+        <span class="btn btn-primary w120"  >返回</span>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+  </div>
+</div>
+
+
+</form>
+</div>
+<div style="display:none;" id="refuse" >
+<div class="addFormModal form-horizontal bg_white">
+<form style="width:600px;" >
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">订单编号</div>
+      <div class="col-md-10">
+        <input class="form-control" readonly="" value="xxxxx"  />
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-2 text-right">拒绝原因</div>
+      <div class="col-md-10">
+        <textarea class="form-textarea form-control"  ></textarea>
+      </div>
+    </div>
+
+   <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="control-label col-md-3 text-right">
+        <span class="btn btn-primary w120"  >保存</span>
+      </div>
+      <div class="col-md-3">
+       <span class="btn btn-primary w120"  >返回</span>
+      </div>
+      <div class="control-label col-md-3 text-right"></div>
+    </div>
+
+</form>
+</div>
+</div>
+<script>
+
+$("#edit").click(function(){
+    refuse();
+});
+
+function refuse(){
+layer.open({type: 1, btn: false, area:["800px","500px"], content:$("#refuse").html(), title:"退换货拒绝",
+             success: function (dom, index) {}
+    });
+}
+
+  $(function() {
+    
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+
+  var AddData = [{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2}];
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:AddData,
+        cols: [
+          [{
+            field: 'id',
+          //  width: 120,
+            title: '商品SKU',
+            // edit: 'text',
+            //sort: true
+          }, {
+            field: 'aaa',
+          //  width: 120,
+            title: '商品名称',
+           // edit: 'text',
+          }, {
+           // field: 'bbb',
+           // width: 120,
+            title: '商品编号',
+           // edit: 'text',
+           // sort: true
+          }, {
+            field: 'ccc',
+          //  width: 80,
+            title: '品牌',
+          //  edit: 'text',
+          }, {
+            field: 'ddd',
+            title: '规格1',
+           // width: 80,
+           // edit: 'text',
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '规格2',
+          //  edit: 'text',
+          }, {
+            field: 'fff',
+           // width: 120,
+            title: '分类路径',
+         //   sort: true
+         //edit: 'text',
+          },
+          {
+            field: 'ggg',
+          // width: 80,
+            title: '原价',
+            //sort: true
+           // edit: 'text',
+          }, 
+          {
+            field: 'hhh',
+          // width: 150,
+            title: '销售价',
+            //edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'iii',
+           // width: 150,
+            title: '重量（克）',
+            // edit: 'text',
+           // sort: true
+          }, 
+          {
+            field: 'jjj',
+           //width: 80,
+            title: '运费',
+           //  edit: 'text',
+           // sort: true
+          } 
+         
+          ]
+        ],
+        page: false
+      });
+
+  });
+
+
+    $("#reward").click(function(){
+
+        layerOpen("reward.html");
+
+    });
+
+ });
+
+  
+
+
+
+</script>

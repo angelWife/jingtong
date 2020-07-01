@@ -1,0 +1,94 @@
+<div id="userAdd" class="addFormModal form-horizontal">
+  <form>
+    
+  
+
+  <div class="tableBox">
+    <div class="row fc" >
+      <div class="col-md-1 row align-items-center fc"></div>
+        <div class="col-md-10 row align-items-center fc"><span class="fc_red" >以下商品的发货信息即将被删除，请慎重操作！</span></div>
+      </div>
+    <table class="layui-hide" id="userTable1"  lay-filter="test1" ></table>
+  </div>
+
+
+    <div class="row align-items-center">
+      <div class="control-label col-md-3 text-right"></div>
+      <div class="col-md-4">
+        <div class="btnBox">
+          <span class="btn btn-primary w120" type="submit">确认删除</span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+<script>
+  $(function() {
+    layui.use(['laydate', 'table'], function() {
+      var laydate = layui.laydate;
+     var table = layui.table;
+
+
+      var AddData = [{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":1},{"id":10000,"aaa":"user-0","bbb":"xxxx","ccc":"xxx","ddd":"xxx","eee":255,"fff":24,"ggg":"xxx","hhh":"2019-10-01","iii":"xxx","jjj":"xxx","kkk":"xxx","lll":"xxx","mmm":"xxx","nnn":"xxx","ooo":"xxx","flag":2}];
+
+      table.render({
+        elem: '#userTable1',
+        //url: 'https://www.layui.com/demo/table/user',
+        data:AddData,
+        cols: [
+          [{
+            field: 'id',
+            width: 120,
+            title: '商品SKU',
+             edit: 'text',
+            //sort: true
+          }, {
+            field: 'aaa',
+            width: 120,
+            title: '商品名称',
+            edit: 'text',
+          }, {
+            field: 'bbb',
+            width: 120,
+            title: '商品编号',
+            edit: 'text',
+           // sort: true
+          }, {
+            field: 'ddd',
+            title: '规格1',
+            width: 80,
+            edit: 'text',
+          }, {
+            field: 'eee',
+            //width: 80,
+            title: '规格2',
+            edit: 'text',
+          }, {
+            field: 'fff',
+            width: 120,
+            title: '物流公司',
+         //   sort: true
+         edit: 'text',
+          },
+          {
+            field: 'ggg',
+           width: 80,
+            title: '物流单号',
+            //sort: true
+            edit: 'text',
+          }
+          
+          
+          ]
+        ],
+        page: false
+      });
+
+
+    });
+
+
+
+  });
+</script>

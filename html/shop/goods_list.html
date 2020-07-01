@@ -1,0 +1,197 @@
+<div id="userList" class="listModal pdv1">
+
+
+  <div class="searchBox form-horizontal">
+    <div class="row">
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">商品名称</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="请输入商品名称" />
+        </div>
+      </div>
+
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">状态</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">分类路径</div>
+        <div class="input col-md-8">
+          <input class="form-control" placeholder="分类路径分类路径" />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+
+      <div class="col-md-4 row align-items-center">
+        <div class="control-label col-md-3 text-right">品牌</div>
+        <div class="input col-md-8">
+          <select class="form-control">
+            <option>请选择</option>
+
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-6 row align-items-center"></div>
+
+      <div class="col-md-1 row align-items-center">
+        <button class="btn btn-primary "> <span class="glyphicon glyphicon-search"></span> 搜索</button>
+      </div>
+
+      <div class="col-md-1 row align-items-center">
+        <button class="btn btn-primary " onclick="addTab('添加商品', 'html/shop/goods_add.html');"> <span class="layui-icon layui-icon-add-1"></span> 新增</button>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="tableBox">
+    <table class="layui-hide" id="userTable" lay-filter="test"></table>
+  </div>
+</div>
+
+<script type="text/html" id="barDemo">
+  <span class="layui-btn layui-btn-xs" lay-event="look">查看</span>
+  <span class="layui-btn layui-btn-xs layui-btn-normal " lay-event="edit">编辑</span>
+  <span class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</span>
+</script>
+
+<script>
+  $(function () {
+
+    layui.use(['laydate', 'table'], function () {
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      laydate.render({
+        elem: '#timerStart'
+      });
+
+      table.render({
+        elem: '#userTable',
+        //url: 'https://www.layui.com/demo/table/user',
+        data: [{
+          "id": 10000,
+          "nickname": "user-0",
+          "sex": "女",
+          "age": "男",
+          "militaryrank": "司令",
+          "reward": 255,
+          "consumption": 24,
+          "Channelofconcern": "小程序",
+          "attentiontime": "2019-10-01"
+        }, {
+          "id": 10000,
+          "nickname": "user-0",
+          "sex": "女",
+          "age": "男",
+          "militaryrank": "司令",
+          "reward": 255,
+          "consumption": 24,
+          "Channelofconcern": "小程序",
+          "attentiontime": "2019-10-01"
+        }, {
+          "id": 10000,
+          "nickname": "user-0",
+          "sex": "女",
+          "age": "男",
+          "militaryrank": "司令",
+          "reward": 255,
+          "consumption": 24,
+          "Channelofconcern": "小程序",
+          "attentiontime": "2019-10-01"
+        }, {
+          "id": 10000,
+          "nickname": "user-0",
+          "sex": "女",
+          "age": "男",
+          "militaryrank": "司令",
+          "reward": 255,
+          "consumption": 24,
+          "Channelofconcern": "小程序",
+          "attentiontime": "2019-10-01"
+        }],
+        cols: [
+          [{
+              field: 'id',
+              //  width: 80,
+              title: '商品编号',
+              sort: true
+            }, {
+              field: 'nickname',
+              width: 80,
+              title: '商品名称'
+            }, {
+              field: 'sex',
+              //  width: 80,
+              title: '品牌',
+              sort: true
+            }, {
+              field: 'age',
+              // width: 80,
+              title: '属性1'
+            }, {
+              field: 'militaryrank',
+              title: '属性2',
+              // width: 80
+            }, {
+              field: 'reward',
+              //width: 80,
+              title: '分类路径',
+              sort: true
+            }, {
+              field: 'consumption',
+              // width: 80,
+              title: '状态',
+              sort: true
+            },
+            {
+              title: '操作',
+              width: 200,
+              align: 'center',
+              templet: '#barDemo'
+            }
+          ]
+        ],
+        page: true
+      });
+
+      //监听工具条 
+      table.on('tool(test)', function (obj) {
+        var data = obj.data;
+        var layEvent = obj.event;
+        var tr = obj.tr;
+
+        if (layEvent === 'look') {
+          loadHtml('mainIframe', 'shop/goods_look.html', {}, "查看商品");
+        } else if (layEvent === 'del') {
+
+        } else if (layEvent === 'edit') { //编辑
+
+          loadHtml('mainIframe', 'shop/goods_edit.html', {}, "编辑商品");
+
+        }
+
+      });
+
+    });
+
+    // $("#add_good").click(function () {
+    //   addTab('添加商品', 'html/shop/goods_add.html');
+
+    // });
+  });
+
+</script>
