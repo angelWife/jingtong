@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10439017",
+      "name": "首页-选中",
+      "font_class": "yemian-copy-copy",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "8897328",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "943524",
+      "name": "扩展功能",
+      "font_class": "kuozhangongneng",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "1369124",
+      "name": "B-服务点业务流水",
+      "font_class": "B-fuwudianyewuliushui",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "9791742",
+      "name": "首页-选中",
+      "font_class": "index",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "4076437",
+      "name": "全屏",
+      "font_class": "quanping-copy",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "10689963",
       "name": "收回",
       "font_class": "shouhui",

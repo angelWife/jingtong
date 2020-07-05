@@ -40,12 +40,42 @@ button.btn {
 .fullHeight {
   height: 100%;
 }
-.bg_white {
+.combody {
   background: #ffffff;
+  padding: 15px;
 }
 .row {
   margin: 0;
   padding: 0;
+}
+.comTitle {
+  line-height: 40px;
+  color: #145DCF;
+  font-size: 16px;
+}
+.myTable {
+  table-layout: fixed;
+}
+.myTable td {
+  min-height: 34px;
+  line-height: 34px !important;
+  font-size: 13px;
+  padding: 0 10px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid #d9d9d9;
+}
+.myTable thead td {
+  font-weight: 600;
+  background: #f7f7f7;
+  border-top: 1px solid #d9d9d9 !important;
+}
+.myTable .enclPic {
+  height: 100px;
+  width: auto;
+  display: inline-block;
+  margin: 10px;
 }
 /*通用调整*/
 .container {
@@ -59,7 +89,7 @@ button.btn {
 }
 .container .head {
   height: 60px;
-  background: #4C8FF7;
+  background: #145DCF;
   position: relative;
 }
 .container .head .logo {
@@ -183,44 +213,46 @@ button.btn {
   min-height: 400px;
   overflow-y: auto;
 }
-.container .body .m_left .menuBox dl {
+.container .body .m_left .menuBox ul {
   font-size: 14px;
   margin: 0;
 }
-.container .body .m_left .menuBox dt {
+.container .body .m_left .menuBox ul li {
   position: relative;
   font-weight: 500;
 }
-.container .body .m_left .menuBox dt a {
+.container .body .m_left .menuBox ul li a {
   color: #999999;
   display: block;
-  height: 60px;
-  line-height: 60px;
-  padding-left: 37px;
+  height: 40px;
+  line-height: 40px;
   overflow: hidden;
 }
-.container .body .m_left .menuBox dt a text {
+.container .body .m_left .menuBox ul li a.iconfont {
+  padding-left: 35px;
+}
+.container .body .m_left .menuBox ul li a text {
   font-size: 14px;
 }
-.container .body .m_left .menuBox dt a:hover {
+.container .body .m_left .menuBox ul li a:hover {
   color: #4C8FF7;
 }
-.container .body .m_left .menuBox dt a::before {
+.container .body .m_left .menuBox ul li a::before {
   position: absolute;
-  line-height: 60px;
+  line-height: 40px;
   height: 100%;
   left: 10px;
   margin-right: 10px;
 }
-.container .body .m_left .menuBox dt i {
+.container .body .m_left .menuBox ul li i {
   position: absolute !important;
   cursor: pointer;
-  height: 60px;
-  line-height: 60px;
+  height: 40px;
+  line-height: 40px;
   font-size: 12px;
   right: 20px;
   top: 0;
-  color: #ffffff;
+  color: #999999;
   -webkit-transition: all 0.3s linear 0s;
   -moz-transition: all 0.3s linear 0s;
   -ms-transition: all 0.3s linear 0s;
@@ -232,40 +264,73 @@ button.btn {
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-.container .body .m_left .menuBox dt i.rotate {
+.container .body .m_left .menuBox ul li i.rotate {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.container .body .m_left .menuBox dt.active a {
-  color: #4C8FF7;
-  background: #EFF3F6;
-}
-.container .body .m_left .menuBox dd {
-  margin: 0;
-  display: none;
-  padding: 6px 0;
-}
-.container .body .m_left .menuBox dd a {
-  display: block;
-  color: #999999;
-  line-height: 60px;
-  padding-left: 39px;
-}
-.container .body .m_left .menuBox dd a:hover {
-  color: #4C8FF7;
-  text-decoration: none;
-}
-.container .body .m_left .menuBox dd a.active {
-  color: #fff;
+.container .body .m_left .menuBox ul li.active a {
+  color: #ffffff;
   background: #4C8FF7;
+}
+.container .body .m_left .menuBox ul li.showMenu > .childMenu {
+  height: auto;
+  display: block;
+  opacity: 1;
+  -webkit-transition: all 0.5s linear 0s;
+  -moz-transition: all 0.5s linear 0s;
+  -ms-transition: all 0.5s linear 0s;
+  -o-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+.container .body .m_left .menuBox ul li.showMenu > a i {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.container .body .m_left .menuBox ul.childMenu {
+  display: none;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: all 0.5s linear 0s;
+  -moz-transition: all 0.5s linear 0s;
+  -ms-transition: all 0.5s linear 0s;
+  -o-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+.container .body .m_left .menuBox ul.childMenu li a {
+  padding-left: 70px;
+}
+.container .body .m_left .menuBox ul.childMenu li a::before {
+  left: 45px;
 }
 .container .body .m_right {
   padding: 0;
   margin: 0;
   width: calc(100% - 250px);
+}
+.container .body .m_right .headData .map_head {
+  border-left: 1px solid #145DCF;
+  width: 100%;
+  height: auto;
+  background: #4C8FF7;
+  padding: 0 10px;
+  line-height: 39px;
+}
+.container .body .m_right .headData .map_head li {
+  float: left;
+  margin-right: 20px;
+  line-height: 39px;
+}
+.container .body .m_right .headData .map_head li .text {
+  color: #ffffff;
+}
+.container .body .m_right .headData .map_head li:last-child {
+  margin-right: 0;
 }
 .container .body .m_right .treeBox {
   height: 40px;
@@ -360,7 +425,7 @@ button.btn {
   color: #B40000;
 }
 .container .body .m_right .main {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 140px);
   overflow: hidden;
 }
 .container .body .m_right .main .iframe {

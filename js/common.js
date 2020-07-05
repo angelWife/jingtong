@@ -7,14 +7,14 @@ function loadMenuAfter() {
 				$('#body_left')
 					.removeClass('showIcon')
 					.animate({
-						width: '240px'
+						width: '250px'
 					},300);
 				$("#body_right").css("width","calc(100% - 250px)");
 				$(this)
 					.find('.glyphicon')
 					.addClass('glyphicon-indent-right')
 					.removeClass('glyphicon-indent-left')
-				$('#menuBox dt i').show()
+				$('#menuBox li i').delay('fast').fadeIn()
 				$('#menuClick').text('《')
 			} else {
 				$('#body_left')
@@ -29,79 +29,33 @@ function loadMenuAfter() {
 					.find('.glyphicon')
 					.addClass('glyphicon-indent-left')
 					.removeClass('glyphicon-indent-right')
-				$('#menuBox dt i')
-					.removeClass('rotate')
-					.hide()
-				$('#menuBox dd').hide()
+				$('#menuBox li i').hide()
+				// $('#menuBox .hasChild').hide()
 				$('#menuClick').text('》')
 			}
 		})
 
 	// 菜单的点击
-	$('#menuBox dt')
+	$('#menuBox li a')
 		.off('click')
 		.on('click', function () {
-			var dd = $(this).next('dd')
-			var href = $(this)
-				.children('a')
-				.data('src')
-			var title = $(this)
-				.children('a')
-				.data('name')
-			var $this = $(this)
-			if ($('#body_left').hasClass('showIcon')) {
-				$('#body_left')
-					.removeClass('showIcon')
-					.animate({
-						width: '240px'
-					},
-						300
-					)
-				$('#menuClick').text('《')
-				setTimeout(function () {
-					$this.find('i').show()
-					if (dd.length > 0) {
-						dd.slideToggle()
-						$this.find('i').toggleClass('rotate')
-					} else {
-						$('#menuBox')
-							.find('.active')
-							.removeClass('active')
-						var p = $this
-							.parent()
-							.prev()
-							.children()
-							.eq(0)
-						if (!p.hasClass('active')) {
-							p.addClass('active')
-						}
-						$this.addClass('active')
-						addTab(title, href)
-					}
-				}, 300)
-			} else {
-				if (dd.length > 0) {
-					dd.slideToggle()
-					$(this)
-						.find('i')
-						.toggleClass('rotate')
-				} else {
-					$('#menuBox')
-						.find('.active')
-						.removeClass('active')
-					$(this).addClass('active')
-					var p = $(this)
-						.parent()
-						.prev()
-						.children()
-						.eq(0)
-					if (!p.hasClass('active')) {
-						p.addClass('active')
-					}
-					addTab(title, href)
-				}
-			}
-		})
+            var li = $(this).parent('li')
+            var href = $(this).data('src');
+            var title = $(this).data('name')
+            var hasChild = li.hasClass('hasChild');
+            if(hasChild){
+                li.toggleClass('showMenu');
+                if(!li.hasClass('showMenu')){
+                    li.find(".showMenu").removeClass('showMenu');
+                }
+            }else{
+                $('#menuBox li').removeClass('active');
+                li.addClass('active');
+                addTab(title, href);
+            }
+            return;
+			
+		});
 
 	$('#menuBox dd a').on('click', function () {
 		$('#menuBox')
@@ -199,7 +153,8 @@ function addTab(title, href, data, callback) {
 	var hasChild = false
 	var index = 0,
 		a_ind = 0
-	var src = href
+    var src = href
+    debugger
 	var c_href = setUrl(href);
 	if (child.length > 0) {
 		htm =

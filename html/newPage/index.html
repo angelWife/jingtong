@@ -25,151 +25,298 @@
 		</script>
 	</head>
 
-	<body class="bg_white">
-		<div class="map_modal">
-			<ul class="map_head layui-form clearfix">
-				<li>
-					<select class="form_com" lay-filter="province">
-						<option>请选择</option>
-						<option>江苏省</option>
-					</select>
-				</li>
-				<li>
-					<label class="layui-form-label">密码框</label>
-					<div class="layui-input-inline">
-						<input
-							class="form_com"
-							type="password"
-							name="password"
-							required
-							lay-verify="required"
-							placeholder="请输入密码"
-							autocomplete="off"
-							class="layui-input"
-						/>
-					</div>
-				</li>
-				<li>
-					<button class="layui-btn layui-btn-normal">搜索</button>
-				</li>
-			</ul>
-
-			<div class="map_main" id="index_map"></div>
-		</div>
-		<div class="detailModal com_dialog" id="detailModal">
-			<div class="row m-b-20">
-				<div style="width: 50%;">
-					<div
-						class="layui-carousel"
-						id="prodList"
-						lay-filter="prodList"
-					>
-						<div carousel-item="">
-							<div>条目1</div>
-							<div>条目2</div>
-							<div>条目3</div>
-							<div>条目4</div>
-							<div>条目5</div>
-						</div>
-					</div>
-				</div>
-				<div class="col w50">
-					<div class="form-box">
-						<div class="row item">
-							<div class="name">品名</div>
-							<div class="val col">测试</div>
-						</div>
-						<div class="row item">
-							<div class="name">型号规格</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">数字编号</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">权属单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">制造单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">安装日期</div>
-							<div class="val col">--</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row m-b-20">
-				<div class="col w50">
-					<div class="form-box">
-						<div class="row item">
-							<div class="name">品名</div>
-							<div class="val col">测试</div>
-						</div>
-						<div class="row item">
-							<div class="name">型号规格</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">数字编号</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">权属单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">制造单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">安装日期</div>
-							<div class="val col">--</div>
-						</div>
-					</div>
-				</div>
-				<div class="col w50">
-					<div class="form-box">
-						<div class="row item">
-							<div class="name">品名</div>
-							<div class="val col">测试</div>
-						</div>
-						<div class="row item">
-							<div class="name">型号规格</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">数字编号</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">权属单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">制造单位</div>
-							<div class="val col">--</div>
-						</div>
-						<div class="row item">
-							<div class="name">安装日期</div>
-							<div class="val col">--</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<body class="bg_white combody">
+		<div class="row">
+            <div class="col-md-6">
+                <div class="comTitle">
+                    最新报警
+                </div>
+                <table class="table myTable" id="dataTable">
+                    <thead>
+                        <tr>
+                            <td>报警时间</td>
+                            <td>设备编号</td>
+                            <td>设备类型</td>
+                            <td>报警原因</td>
+                            <td>所在区域</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>18:30</td>
+                            <td>00001</td>
+                            <td>雨水</td>
+                            <td>非法开启</td>
+                            <td>江苏-苏州</td>
+                            <td>
+                                <a href="">查看</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="comTitle">
+                    报警类型
+                </div>
+                <div id="dataChats_two" style="height:280px;"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="comTitle">
+                    报警数据
+                </div>
+                <div id="dataChats_one" style="height:280px;"></div> 
+            </div>
+            <div class="col-md-6">
+                <div class="comTitle">
+                    区域报警
+                </div>
+                <div id="dataChats_three" style="height:280px;"></div>
+            </div>
+        </div>
 	</body>
-	<script
-		type="text/javascript"
-		src="//api.map.baidu.com/api?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"
-	></script>
-	<script src="../../js/map.js"></script>
+	<script src="../../js/echarts.min.js"></script>
 	<script>
-		$(function () {
-			indexMap()
-		})
+		$(function() {
+    setChatsOne();
+    setChatsTwo();
+    setChatsThree();
+    // setChatsFour();
+  });
+
+  function setChatsOne() {
+
+    var myChart = echarts.init(document.getElementById('dataChats_one'));
+    var option = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          crossStyle: {
+            color: '#999'
+          }
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          dataView: {
+            show: true,
+            readOnly: false
+          },
+          magicType: {
+            show: true,
+            type: ['line', 'bar']
+          },
+          restore: {
+            show: true
+          },
+          saveAsImage: {
+            show: true
+          }
+        }
+      },
+      legend: {
+        data: ['蒸发量', '平均温度']
+      },
+      xAxis: [{
+        type: 'category',
+        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        axisPointer: {
+          type: 'shadow'
+        }
+      }],
+      yAxis: [{
+          type: 'value',
+          name: '收入',
+          min: 0,
+          max: 250,
+          interval: 50,
+          axisLabel: {
+            formatter: '{value} ml'
+          }
+        },
+        {
+          type: 'value',
+          name: '温度',
+          min: 0,
+          max: 25,
+          interval: 5,
+          axisLabel: {
+            formatter: '{value} °C'
+          }
+        }
+      ],
+      series: [{
+          name: '与收入',
+          type: 'bar',
+          data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+        },
+        {
+          name: '平均收入',
+          type: 'line',
+          yAxisIndex: 1,
+          data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+        }
+      ]
+    };
+    myChart.setOption(option);
+  }
+
+   function setChatsTwo() {
+    var myChart = echarts.init(document.getElementById('dataChats_two'));
+    var option = {
+      ltitle: {
+        text: '同名数量统计',
+        subtext: '纯属虚构',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data: ['西凉', '益州', '兖州', '荆州', '幽州']
+    },
+    series: [
+        {
+            type: 'pie',
+            radius: '55%',
+            center: ['40%', '50%'],
+            data: [
+                {value: 1548,name: '幽州',},
+                {value: 535, name: '荆州'},
+                {value: 510, name: '兖州'},
+                {value: 634, name: '益州'},
+                {value: 735, name: '西凉'}
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ],
+    }
+    myChart.setOption(option);
+  }
+
+  function setChatsThree() {
+    var myChart = echarts.init(document.getElementById('dataChats_three'));
+    var option = {
+      title: {
+        text: '',
+        subtext: ''
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: ['11月11日','11月12日']
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: {
+        type: 'category',
+        data: ['7:00-9:00', '9:00-10:00', '10:00-13:00', '13:00-15:00', '15:00-17:00',
+          '17:00-19:00', '19:00-21:00', '21:00-7:00'
+        ]
+      },
+      series: [{
+        name: '11月11日',
+        type: 'bar',
+        data: [18203, 23489, 29034, 104970, 131744, 630230, 12354, 2135]
+      },{
+        name: '11月12日',
+        type: 'bar',
+        data: [18203, 23489, 29034, 104970, 131744, 630230, 12354, 2135]
+      }]
+    };
+    myChart.setOption(option);
+  }
+
 	</script>
 </html>

@@ -72,10 +72,40 @@
 }
 .login .loginForm .input {
   margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.3em;
+  margin-bottom: 30px;
+}
+.login .loginForm .input .error {
+  position: absolute;
+  bottom: -25px;
+  left: 40px;
+  font-size: 13px;
+}
+.login .loginForm .input i {
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #ffffff;
 }
 .login .loginForm .input input {
   height: 40px;
   line-height: 40px;
+  background: none;
+  border: 0;
+}
+.login .loginForm .input input:focus {
+  box-shadow: none;
+}
+.login .operBox {
+  line-height: 30px;
+  color: #ffffff;
+}
+.login .operBox input {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-right: 3px;
 }
 .login .varify_code {
   position: absolute;
@@ -85,7 +115,7 @@
   cursor: pointer;
 }
 .login .btnBox {
-  margin: 20px 0 50px;
+  margin: 50px 0 20px;
 }
 .login .btnBox button {
   width: 100%;
