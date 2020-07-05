@@ -19,6 +19,13 @@ body {
   width: 100%;
   font-size: 14px;
   overflow-x: auto;
+  &.body_gray{
+    background: #EFF3F6;
+  }
+  &.hasFoot{
+    padding-bottom:70px;
+    position: relative;
+  }
 }
 
 ul,
@@ -54,7 +61,7 @@ button {
 }
 
 .combody {
-  background: @white;
+  background: #EFF3F6;
   padding:15px;
 }
 
@@ -464,12 +471,11 @@ button {
 
       .main {
         height: calc(100vh - 140px);
-        overflow: hidden;
+        // overflow: hidden;
 
         // overflow-y: scroll;
         .iframe {
           background: #EFF3F6;
-          padding: 15px;
         }
       }
     }
@@ -491,20 +497,64 @@ button {
 }
 
 .searchBox {
-  margin: 15px;
-  padding: 20px 0;
+  padding: 20px;
   border: 1px solid @gray_e6;
+  background: @white;
+  .layui-form-label{
+    min-width: 100px;
+  }
+  select{
+    width: 173px !important;
+  }
+  .form-group{
+    margin-bottom:15px;
+  }
+  .searchBtn{
+    padding:0 20px;
+  }
 }
-
+.listModal{
+  background: @white;
+  margin-top:15px;
+  padding:15px;
+}
 .tableBox {
   margin: 15px;
 }
 
 .addFormModal {
-  padding: 30px 0;
-
-  .row {
-    margin-top: 20px;
+  background: @white;
+  padding-top:20px;
+  .form-group {
+    margin-bottom: 20px;
+    .control-label{
+      text-align: right;
+      margin:0 !important;
+      line-height: 40px;
+    }
+    .form-control{
+      height:40px;
+      line-height: 40px;
+    }
+    .dateIcon{
+      position: absolute;
+      right:15px;
+      width: 40px;
+      height:40px;
+      line-height: 40px;
+      text-align: center;
+      top:0;
+      color:@gray_99;
+      cursor: pointer;
+    }
+    textarea{
+      min-height:120px;
+      resize: none;
+    }
+    select{
+      height:40px !important;
+      line-height: 40px;
+    }
   }
 
   .form-textarea {
@@ -518,6 +568,20 @@ button {
     button {
       width: 120px;
     }
+  }
+}
+.footOper{
+  position: fixed;
+  z-index: 9999;
+  width: calc(100% + 30px);
+  left:-15px;
+  bottom:0;
+  padding:10px 20px;
+  background: @white;
+  text-align: right;
+  box-shadow: 0 -5px 5px rgba(0,0,0,0.1);
+  button {
+    width: 120px;
   }
 }
 

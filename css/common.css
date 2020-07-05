@@ -16,6 +16,15 @@ body {
   font-size: 14px;
   overflow-x: auto;
 }
+html.body_gray,
+body.body_gray {
+  background: #EFF3F6;
+}
+html.hasFoot,
+body.hasFoot {
+  padding-bottom: 70px;
+  position: relative;
+}
 ul,
 ol,
 li {
@@ -41,7 +50,7 @@ button.btn {
   height: 100%;
 }
 .combody {
-  background: #ffffff;
+  background: #EFF3F6;
   padding: 15px;
 }
 .row {
@@ -426,11 +435,9 @@ button.btn {
 }
 .container .body .m_right .main {
   height: calc(100vh - 140px);
-  overflow: hidden;
 }
 .container .body .m_right .main .iframe {
   background: #EFF3F6;
-  padding: 15px;
 }
 .container .showIcon .menuBox {
   overflow: hidden;
@@ -439,18 +446,64 @@ button.btn {
   margin-top: 15px !important;
 }
 .searchBox {
-  margin: 15px;
-  padding: 20px 0;
+  padding: 20px;
   border: 1px solid #e6e6e6;
+  background: #ffffff;
+}
+.searchBox .layui-form-label {
+  min-width: 100px;
+}
+.searchBox select {
+  width: 173px !important;
+}
+.searchBox .form-group {
+  margin-bottom: 15px;
+}
+.searchBox .searchBtn {
+  padding: 0 20px;
+}
+.listModal {
+  background: #ffffff;
+  margin-top: 15px;
+  padding: 15px;
 }
 .tableBox {
   margin: 15px;
 }
 .addFormModal {
-  padding: 30px 0;
+  background: #ffffff;
+  padding-top: 20px;
 }
-.addFormModal .row {
-  margin-top: 20px;
+.addFormModal .form-group {
+  margin-bottom: 20px;
+}
+.addFormModal .form-group .control-label {
+  text-align: right;
+  margin: 0 !important;
+  line-height: 40px;
+}
+.addFormModal .form-group .form-control {
+  height: 40px;
+  line-height: 40px;
+}
+.addFormModal .form-group .dateIcon {
+  position: absolute;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  top: 0;
+  color: #999999;
+  cursor: pointer;
+}
+.addFormModal .form-group textarea {
+  min-height: 120px;
+  resize: none;
+}
+.addFormModal .form-group select {
+  height: 40px !important;
+  line-height: 40px;
 }
 .addFormModal .form-textarea {
   height: 100px;
@@ -460,6 +513,20 @@ button.btn {
   text-align: right;
 }
 .addFormModal .btnBox button {
+  width: 120px;
+}
+.footOper {
+  position: fixed;
+  z-index: 9999;
+  width: calc(100% + 30px);
+  left: -15px;
+  bottom: 0;
+  padding: 10px 20px;
+  background: #ffffff;
+  text-align: right;
+  box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1);
+}
+.footOper button {
   width: 120px;
 }
 .left {

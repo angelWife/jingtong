@@ -50,49 +50,14 @@ function loadMenuAfter() {
                 }
             }else{
                 $('#menuBox li').removeClass('active');
-                li.addClass('active');
+                setTimeout(() => {
+									li.addClass('active');
+								}, 100);
                 addTab(title, href);
             }
             return;
 			
 		});
-
-	$('#menuBox dd a').on('click', function () {
-		$('#menuBox')
-			.find('.active')
-			.removeClass('active')
-		$(this).addClass('active')
-		var p = $(this)
-			.parent()
-			.prev()
-			.children()
-			.eq(0)
-		if (!p.hasClass('active')) {
-			p.addClass('active')
-		}
-		var href = $(this).data('src')
-		var title = $(this).data('name')
-
-		var srcParam = $(this).attr('srcParam');
-		var paramData = {};
-		if (srcParam) {
-			var arr1 = srcParam.split(",");
-			if (arr1) {
-				$.each(arr1, function (j1, k1) {
-					if (k1) {
-						var arr2 = k1.split("=");
-						if (arr2 && arr2.length == 2) {
-							paramData[arr2[0]] = arr2[1];
-						}
-					}
-				})
-			}
-		}
-		addTab(title, href, paramData)
-
-
-	})
-
 	//头部菜单
 	$('#headNav li.more').hover(
 		function () {
@@ -154,7 +119,6 @@ function addTab(title, href, data, callback) {
 	var index = 0,
 		a_ind = 0
     var src = href
-    debugger
 	var c_href = setUrl(href);
 	if (child.length > 0) {
 		htm =
