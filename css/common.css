@@ -462,6 +462,10 @@ button.btn {
 .searchBox .searchBtn {
   padding: 0 20px;
 }
+.comModal {
+  background: #ffffff;
+  padding: 15px;
+}
 .listModal {
   background: #ffffff;
   margin-top: 15px;
