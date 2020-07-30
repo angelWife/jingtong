@@ -50,7 +50,7 @@ function loadMenuAfter() {
                 }
             }else{
                 $('#menuBox li').removeClass('active');
-                setTimeout(() => {
+                setTimeout(function(){
 									li.addClass('active');
 								}, 100);
                 addTab(title, href);
