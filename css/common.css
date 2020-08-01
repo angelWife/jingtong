@@ -551,6 +551,9 @@ button.btn {
 .pd15 {
   padding: 15px;
 }
+.m-t-20 {
+  margin-top: 20px;
+}
 /*修改选项卡的样式*/
 .layui-tab .layui-this {
   color: #145DCF !important;

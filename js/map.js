@@ -31,7 +31,7 @@ function indexMap(){
         marker.addEventListener("click", function(){       
             infoWindow.setWidth(300);
             this.openInfoWindow(infoWindow);
-            //图片加载完毕重绘infowindow
+            //图片加载完毕重绘infowindow                    
             document.getElementById('imgDemo'+i).onload = function (){
 
                 infoWindow.redraw();
