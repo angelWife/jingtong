@@ -178,6 +178,13 @@
                     layer.msg('状态：' + obj.state + '<br>节点数据：' + JSON.stringify(data));
                 }
             });
+
+            layForm.on('switch(switchTest)', function (data) {
+                layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                    offset: '6px'
+                });
+                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+            });
         })
     </script>
     <style>
@@ -194,10 +201,9 @@
             background-size: 24px auto;
         }
 
-        .control-label {
+        .layui-form-label {
             min-width: 120px;
             max-width: 120px;
-            margin-top: 5px;
         }
 
         .layui-tree-icon {
@@ -212,18 +218,18 @@
 
     <div class="comModal">
         <h5>请填写角色相关信息</h5>
-        <form class="form-horizontal">
-            <div class="row  m-t-20">
-                <div class="form-group col-md-6 row">
-                    <label class="col-md-3 control-label">设备编号</label>
-                    <div class="col-md-7">
-                        <input type="text" name="phone" autocomplete="off" class="form-control">
+        <form class="layui-form">
+            <div class="layui-form-item  m-t-20">
+                <div class="layui-inline">
+                    <label class="layui-form-label">设备编号</label>
+                    <div class="layui-input-inline">
+                        <input type="tel" name="phone" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="form-group col-md-6 row">
-                    <label class="col-md-3 control-label">部门</label>
-                    <div class="col-md-7">
-                        <select name="interest" lay-filter="aihao" class="form-control">
+                <div class="layui-inline">
+                    <label class="layui-form-label">部门</label>
+                    <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao">
                             <option value=""></option>
                             <option value="0">写作</option>
                             <option value="1" selected="">阅读</option>
@@ -241,15 +247,10 @@
                     <div id="treeBox" class="demo-tree demo-tree-box"></div>
                 </div>
             </div>
-            <div class="form-group row m-t-20">
-                <label class="col-md-3 control-label">角色状态</label>
-                <div class="col-md-7">
-                    <div class="switchBox">
-                        <div class="text">异常</div>
-                        <div class="comSwitch" onclick="switchChange(this);"></div>
-                        <div class="text">正常</div>
-                    </div>
-                    
+            <div class="layui-form-item m-t-20" >
+                <label class="layui-form-label">角色状态</label>
+                <div class="layui-input-block">
+                  <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="正常|禁用">
                 </div>
               </div>
         </form>
