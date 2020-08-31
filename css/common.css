@@ -237,6 +237,15 @@ button.btn {
   line-height: 40px;
   overflow: hidden;
 }
+.container .body .m_left .menuBox ul li a .img_icon {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 5px;
+  height: 18px;
+  vertical-align: center;
+  position: relative;
+  top: -2px;
+}
 .container .body .m_left .menuBox ul li a.iconfont {
   padding-left: 35px;
 }
@@ -312,6 +321,12 @@ button.btn {
   transition: all 0.5s linear 0s;
 }
 .container .body .m_left .menuBox ul.childMenu li a {
+  padding-left: 36px;
+}
+.container .body .m_left .menuBox ul.childMenu li a.hasIcon {
+  padding-left: 70px;
+}
+.container .body .m_left .menuBox ul.childMenu li a.noIcon {
   padding-left: 70px;
 }
 .container .body .m_left .menuBox ul.childMenu li a::before {
@@ -442,6 +457,69 @@ button.btn {
 .container .showIcon .menuBox {
   overflow: hidden;
 }
+.switchBox {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0 20px;
+}
+.switchBox .text {
+  display: inline-block;
+  color: #999999;
+}
+.switchBox .comSwitch {
+  margin: 0 20px;
+  display: inline-block;
+  width: 70px;
+  height: 28px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.switchBox .comSwitch::before {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background: #e6e6e6;
+  top: 2px;
+  left: 2px;
+  content: '';
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.switchBox .comSwitch.on {
+  background: #4C8FF7;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.switchBox .comSwitch.on::before {
+  background: #ffffff;
+  left: 43px;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
 .topOper {
   margin-top: 15px !important;
 }
@@ -461,6 +539,10 @@ button.btn {
 }
 .searchBox .searchBtn {
   padding: 0 20px;
+}
+.comModal {
+  background: #ffffff;
+  padding: 15px;
 }
 .listModal {
   background: #ffffff;
@@ -505,6 +587,9 @@ button.btn {
   height: 40px !important;
   line-height: 40px;
 }
+.addFormModal .form > .row {
+  margin-top: 20px;
+}
 .addFormModal .form-textarea {
   height: 100px;
 }
@@ -546,6 +631,9 @@ button.btn {
 }
 .pd15 {
   padding: 15px;
+}
+.m-t-20 {
+  margin-top: 20px;
 }
 /*修改选项卡的样式*/
 .layui-tab .layui-this {

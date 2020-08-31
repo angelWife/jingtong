@@ -266,6 +266,15 @@ button {
               height: 40px;
               line-height: 40px;
               overflow: hidden;
+              .img_icon{
+                display: inline-block;
+                margin-left:10px;
+                margin-right:5px;
+                height:18px;
+                vertical-align: center;
+                position: relative;
+                top:-2px;
+              }
               &.iconfont{
                   padding-left:35px;
               }
@@ -311,7 +320,7 @@ button {
             }
             &.showMenu{
                 > .childMenu{
-                    height:auto;
+                  height:auto;
                   display: block;
                   opacity: 1;
                   .transition(all, 0.5s);
@@ -330,7 +339,13 @@ button {
               .transition(all, 0.5s);
               li{
                 a{
-                    padding-left: 70px;
+                    padding-left: 36px;
+                    &.hasIcon{
+                      padding-left: 70px;
+                    }
+                    &.noIcon{
+                      padding-left: 70px;
+                    }
                     &::before{
                         left:45px;
                     }
@@ -489,8 +504,56 @@ button {
 
   }
 
-
 }
+.switchBox{
+  height:100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+		align-items: center;
+  padding:0 20px;
+  .text{
+    display: inline-block;
+    color:@gray_99;
+  }
+  .comSwitch{
+    margin:0 20px;
+    display: inline-block;
+    width: 70px;
+    height:28px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+    position: relative;
+    cursor: pointer;
+    .transition(all,0.3s);
+    &::before{
+      position: absolute;
+      height:24px;
+      width: 24px;
+      border-radius: 24px;
+      background: #e6e6e6;
+      top:2px;
+      left:2px;
+      content:'';
+      .transition(all,0.3s);
+    }
+    &.on{
+      background: @blue;
+      .transition(all,0.3s);
+      &::before{
+        background: @white;
+        left: 43px;
+        .transition(all,0.3s);
+      }
+    }
+  
+  }
+}
+
 
 .topOper {
   margin-top: 15px !important;
@@ -512,6 +575,10 @@ button {
   .searchBtn{
     padding:0 20px;
   }
+}
+.comModal{
+  background: @white;
+  padding:15px;
 }
 .listModal{
   background: @white;
@@ -554,6 +621,11 @@ button {
     select{
       height:40px !important;
       line-height: 40px;
+    }
+  }
+  .form{
+    >.row{
+      margin-top:20px;
     }
   }
 
@@ -607,6 +679,9 @@ button {
 
 .pd15 {
   padding: 15px;
+}
+.m-t-20{
+    margin-top:20px;
 }
 
 /*修改选项卡的样式*/

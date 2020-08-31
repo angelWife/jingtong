@@ -13,6 +13,14 @@
 	<link rel="stylesheet" href="../../css/map.css" />
 	<script src="../../js/jquery-2.1.1.js"></script>
 	<script src="../../dist/layui/layui.all.js"></script>
+	<script>
+
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        var table = layui.table;
+        var layUpload = layui.upload;
+    // });
+    </script>
 </head>
 
 <body class="combody">
@@ -77,11 +85,11 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"></script>
-<script src="../../js/map.js"></script>
+<script type="text/javascript" src="//api.map.baidu.com/getscript?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"></script>
+<script src="../../js/map.js?radom=123"></script>
 <script>
 	$(function () {
-		listMap();
+		indexMap('list_map');
 	})
 </script>
 

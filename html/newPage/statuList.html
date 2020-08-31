@@ -99,17 +99,14 @@
                     <dd></dd>
                 </dl>
             </div>
-			<div class="map_main" id="statu_map"></div>
+			<div class="map_main" id="baojing_map"></div>
 		</div>
 	</body>
-	<script
-		type="text/javascript"
-		src="//api.map.baidu.com/api?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"
-	></script>
-	<script src="../../js/map.js"></script>
+	<script type="text/javascript" src="//api.map.baidu.com/getscript?v=3.0&ak=4qo3nCgKtZuZCIEkAXVGLi3T"></script>
+<script src="../../js/map.js"></script>
 	<script>
 		$(function () {
-            statuMap();
+            statuMap('baojing_map');
             $("#hideAddress").on('click',function(){
                 $(".addressList").animate({
                     left:'-100%'
