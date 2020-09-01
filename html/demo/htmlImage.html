@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <h2>原始HTML</h2>
+    <div style="background:red;width: 600px;" id="container">
+        <div style="background:green;">
+            <div style="background:blue;">
+                <div style="background:yellow;">
+                    <div style="background:white;">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 id="toCanvasBtn"> <a href="javascript:void(0);">第一步：点击转成canvas </a></h2>
+    <h2 id="toImageBtn"><a href="javascript:void(0);">第二步：点击转成图片 </a></h2>
+
+    <section id="saveBox">
+        <h2>第三步：保存图片</h2>
+        <h5>
+            <label for="imgW">宽度:</label>
+            <input type="number" value="" id="imgW" placeholder="默认是原图宽度" />
+            <label for="imgH">高度:</label>
+            <input type="number" value="" id="imgH" placeholder="默认是原图高度" />
+            <label for="imgFileName">文件名:</label>
+            <input type="text" placeholder="文件名" id="imgFileName" />
+            <select id="sel">
+                <option value="png">png</option>
+                <option value="jpeg">jpeg</option>
+                <option value="bmp">bmp</option>
+            </select>
+            <button id="saveImageBtn">保存</button>
+        </h5>
+    </section>
+    <br><br>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/canvas2image.js"></script>
+    <script src="js/Chart-2.7.3.js"></script>
+    <script>
+    /**
+     * 例子
+     *
+     */
+    class Index {
+        constructor(domId) {
+            this.$container = $('#container'); //需要转换为图片的容器 
+            this.$toCanvasBtn = $('#toCanvasBtn'); //点击转换容器为画布的元素
+            this.$toImageBtn = $('#toImageBtn'); //点击转换画布为图片的元素
+            this.$saveImageBtn = $('#saveImageBtn'); //点击转换画布为图片的元素
+            this.$saveBox = $('#saveBox'); //点击保存图片的容器
+
+            this.init(); //初始化
+        }
+
+        /* 初始化 */
+        init() {
+            this.createChart(); //创建图表
+            this.toCanvas(); //容器转图片系列功能
+        }
+
+        /* 创建图表 */
+        createChart() {
+            let ctx = document.getElementById("myChart").getContext('2d');
+            let myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        /* 元素转canvas */
+        toCanvas() {
+            this.$toCanvasBtn.click(e => {
+                html2canvas(this.$container[0]).then(canvas => {
+                   
+                    
+                    this.$toCanvasBtn.after(canvas); //渲染canvas
+                    
+                    this.$toImageBtn.show(1000);//显示‘转成图片’按钮
+
+                    this.toImage(canvas);
+
+                });
+            });
+            
+        }
+
+        /* canvas转图片 */
+        toImage(canvas) {
+            this.$toImageBtn.click( e => {
+                 
+                let canvasWidth = canvas.width; //canvas宽度
+                
+                let canvasHeight = canvas.height; //canvas高度
+                
+                let img = Canvas2Image.convertToImage(canvas, canvasWidth, canvasHeight); //调用Canvas2Image插件
+               
+                this.$toImageBtn.after(img);  //渲染图片
+
+                this.$saveBox.show(1000); //显示保存图片的容器
+
+                this.saveImage(canvas); //保存图片
+            });
+        }
+
+        /* 保存图片 */
+        saveImage(canvas) {
+            this.$saveImageBtn.click( e => {
+                let type = $('#sel').val(); //图片类型
+                let w = $('#imgW').val(); //图片宽度
+                let h = $('#imgH').val(); //图片高度
+                let f = $('#imgFileName').val(); //图片文件名
+                w = (w === '') ? canvasWidth : w; //判断输入宽高是否为空，为空时保持原来的值
+                h = (h === '') ? canvasHeight : h;
+                
+                Canvas2Image.saveAsImage(canvas, w, h, type, f); //调用Canvas2Image插件
+            });
+        }
+    };
+
+    new Index();
+    </script>
+</body>
+
+</html>

@@ -69,27 +69,27 @@
                         <li class="active">
                             <a class="iconfont icon-yemian-copy-copy" href="javascript:void(0);" data-name="首页"
                                 data-src="/html/newPage/index.html">
-                                <text id="navHome">首页</text>
+                                <text>首页</text>
                             </a>
                         </li>
                         <li class="hasChild">
                             <a class="iconfont icon-xitongpeizhi" href="javascript:void(0);" data-name="列表数据" data-src="">
                                 <!-- <img class="img_icon" src="../images/icon-marketing-grey@2x.png"/> -->
-                                <text id="navHome">监控中心</text>
+                                <text>监控中心</text>
                                 <i class="iconfont icon-down"></i>
                             </a>
                             <ul class="childMenu">
                                 <li class="hasChild">
                                     <a class="" href="javascript:void(0);" data-name="列表数据"
                                         data-src="/html/newPage/mapList.html">
-                                        <text id="navHome">菜单一</text>
+                                        <text>菜单一</text>
                                         <i class="iconfont icon-down"></i>
                                     </a>
                                     <ul class="childMenu">
                                         <li>
                                             <a class="noIcon" href="javascript:void(0);" data-name="列表数据"
                                                 data-src="/html/newPage/mapList.html">
-                                                <text id="navHome">菜单一</text>
+                                                <text>菜单一</text>
                                             </a>
                                             <li></li>
                                     </ul>
@@ -186,21 +186,11 @@
 </body>
 <script>
     var menus = [
-        // {"id":"1","name":"营销管理","icon":"iconfont icon-yingxiaozhongxin","img_icon":"/images/yingxiao@2x.png","children":[
-        //       {"name":"营销管理","icon":"iconfont icon-yingxiaozhongxin","img_icon":"/images/yingxiao@2x.png","children":[
-        //         {"name":"粉丝管理","url":"html/marketing/funs_list.html"},
-        //         {"name":"私信管理","url":"html/marketing/private_letter_list.html"},
-        //         {"name":"发帖管理","url":"html/marketing/post_list.html"},
-        //         {"name":"广告管理","url":"html/marketing/ad_manage_list.html"},
-        //         {"name":"广告购买","url":"html/marketing/ad_list.html"},
-        //         {"name":"客服管理","url":"html/marketing/kefu_list.html"},
-        //         {"name":"在线客服","url":"html/marketing/chat.html"},
-        //         {"name":"知识库管理","url":"html/marketing/knowledge_list.html"},
-        //         {"name":"消息管理","url":"html/marketing/news_list.html"},
-        //       ]}
-
-        //       ]
-        // },
+        {"id": "1",
+            "name": "首页",
+            "icon": "iconfont icon-yemian-copy-copy",
+            "url":"/html/newPage/index.html"
+        },
         {
             "id": "2",
             "name": "商铺管理",
@@ -315,7 +305,7 @@
 
     ];
 
-    init_menu([]);
+    init_menu(menus);
 
     // addTab('首页', 'html/newPage/index.html');
 

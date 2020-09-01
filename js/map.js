@@ -65,8 +65,8 @@ function listMap(){
     update();
 }
 
-function statuMap(){
-    var map = new BMap.Map("statu_map");
+function statuMap(id){
+    var map = new BMap.Map(id);
     map.centerAndZoom(new BMap.Point(119.278012,26.084406), 14);
     map.enableScrollWheelZoom();
   
